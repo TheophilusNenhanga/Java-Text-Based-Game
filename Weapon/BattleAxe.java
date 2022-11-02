@@ -15,8 +15,8 @@ public class BattleAxe extends Weapon{
         this.addAttacks();
     }
     private void addAttacks(){
-        this.attacks.put(1, new Attack("Sword Slash", 0.1, 15));
-        this.attacks.put(2, new Attack("Counter Attack", 0.3, 10));
-        this.attacks.put(3, new Attack("Passata Sotto", 0.5, 5));
+        this.attacks.put(1, new Attack("Basic Chop", 0.1, 15));
+        this.attacks.put(2, new Attack("Swift Chop", 0.3, 10));
+        this.attacks.put(3, new Attack("Axe Cleave", 0.5, 5));
     }
 }
