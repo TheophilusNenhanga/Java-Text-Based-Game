@@ -1,10 +1,11 @@
 package Weapon;
 
 import Enchantment.Enchantment;
+import SuperClasses.Items;
 
 import java.util.HashMap;
 
-public class Weapon {
+public class Weapon extends Items {
     String name;
     String description;
     int damage;

@@ -1,6 +1,9 @@
 package Consumables;
+
+import SuperClasses.Items;
+
 /**Base class for all items used to restore health*/
-public class Consumable {
+public class Consumable extends Items {
     int value;
     String name;
     int healingValue;
