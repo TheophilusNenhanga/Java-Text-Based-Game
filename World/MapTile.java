@@ -3,6 +3,7 @@ package World;
 import Player.Player;
 
 import java.util.Objects;
+import java.util.Random;
 
 public abstract class MapTile {
 
@@ -10,10 +11,13 @@ public abstract class MapTile {
     int y;
     boolean completed;
 
+    Random random;
+
     public MapTile(int x, int y){
         this.x = x;
         this.y = y;
         this.completed = false;
+        this.random = new Random();
     }
 
     public void introText(){

@@ -13,6 +13,8 @@ public class World {
                 |   |   |   |
                 |   |VT |   |
                 """;
+
+        tileTypes = new HashMap<String, MapTile>();
     }
 
     public boolean isWorldValid(String world){
