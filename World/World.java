@@ -1,17 +1,21 @@
 package World;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class World {
 
     String worldString;
     HashMap<String, MapTile> tileTypes;
 
+    int[] startLocation;
+
+    ArrayList<ArrayList<MapTile>> worldMap;
+
     public World(){
         this.worldString = """
-                |ST |   |   |
-                |   |   |   |
-                |   |VT |   |
+                |ST|  |  |
+                |  |  |  |
+                |  |VT|  |
                 """;
 
         tileTypes = new HashMap<String, MapTile>();
@@ -20,10 +24,10 @@ public class World {
     public boolean isWorldValid(String world){
        /*int allPipeCount = 0;*/
 
-        if (!world.contains("|ST |")) {
+        if (!world.contains("|ST|")) {
             return false;
         }
-        if (!world.contains("|VT |")){
+        if (!world.contains("|VT|")){
             return false;
         }
 
@@ -49,6 +53,37 @@ public class World {
         if (!this.isWorldValid(this.worldString)){
             throw new RuntimeException("World String is Invalid");
         }
+
+        this.worldMap = new ArrayList<>();
+        String[] worldLines = this.worldString.split("\n");
+         for (int y = 0; y < worldLines.length; y++){
+             ArrayList<MapTile> row = new ArrayList<MapTile>();
+             String worldRow =  worldLines[y];
+             ArrayList<String> cell = new ArrayList<>(List.of(worldRow.split("\\|")));
+             cell.removeIf(element -> Objects.equals(element, "")); // Has this effect --- for(String element: cell){if (Objects.equals(element, "")){cell.remove(element);}}
+             for (int x = 0; x < cell.size(); x++){
+                 System.out.println(x);
+                 switch (cell.get(x)){
+                     case "  " -> row.add(null);
+                     case "ST" -> {row.add(new StartTile(x, y));
+                                    this.startLocation = new int[]{x, y};}
+                     case "VT" -> row.add(new VictoryTile(x, y));
+                 }
+
+             }
+             this.worldMap.add(row);
+         }
+    }
+
+    public MapTile GetTile(int x, int y){
+        if (x < 0 || y < 0){
+            return null;
+        }
+        try{
+            return worldMap.get(y).get(x);
+        }catch (IndexOutOfBoundsException e){
+            return null;
+        }
     }
 
 
@@ -56,6 +91,8 @@ public class World {
     public static void main(String[] args){
         World newWorld =  new World();
         System.out.println(newWorld.isWorldValid(newWorld.worldString));
+        newWorld.parseWorld();
+        System.out.println(newWorld.worldMap);
     }
 
 }
