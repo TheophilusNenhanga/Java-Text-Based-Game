@@ -8,6 +8,8 @@ public class Enemies {
     int damage;
     int score;
     int reward;
+    int defence;
+    String type;
     Random random;
 
     public Enemies(){
@@ -15,6 +17,7 @@ public class Enemies {
         this.name = "Enemy";
         this.hp = 0;
         this.damage = 0;
+        this.defence = 0;
         this.score = 5;
         this.reward = random.nextInt(1, 8);
     }
