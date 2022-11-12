@@ -3,9 +3,9 @@ package Enemies;
 import java.util.Random;
 
 public class Enemies {
-    String name;
+    public String name;
     int hp;
-    int damage;
+    public int damage;
     int score;
     int reward;
     int defence;

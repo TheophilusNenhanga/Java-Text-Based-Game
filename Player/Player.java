@@ -101,4 +101,12 @@ public class Player {
         }
         return bestDefence;
     }
+
+    public void heal(){
+        // TODO: Add implementation
+    }
+
+    public void attack(){
+        // TODO: Add implementation
+    }
 }

@@ -7,13 +7,13 @@ public class World {
     String worldString;
     HashMap<String, MapTile> tileTypes;
 
-    int[] startLocation;
+    public int[] startLocation;
 
     ArrayList<ArrayList<MapTile>> worldMap;
 
-    public World(){
+    public World() {
         this.worldString = """
-                |ST|  |  |
+                |  |  |ST|
                 |  |  |  |
                 |  |VT|  |
                 """;
@@ -21,21 +21,21 @@ public class World {
         tileTypes = new HashMap<String, MapTile>();
     }
 
-    public boolean isWorldValid(String world){
-       /*int allPipeCount = 0;*/
+    public boolean isWorldValid(String world) {
+        /*int allPipeCount = 0;*/
 
         if (!world.contains("|ST|")) {
             return false;
         }
-        if (!world.contains("|VT|")){
+        if (!world.contains("|VT|")) {
             return false;
         }
 
-        String[] lines  = world.split("\n");
+        String[] lines = world.split("\n");
 
-        for (int i = 0; i < lines.length-1; i++){
-                if (!(lines[i].length() == lines[i + 1].length())) {
-                    return false;
+        for (int i = 0; i < lines.length - 1; i++) {
+            if (!(lines[i].length() == lines[i + 1].length())) {
+                return false;
             }
         }
 
@@ -48,54 +48,53 @@ public class World {
         return true;
     }
 
-    public void parseWorld(){
+    public void parseWorld() {
         // TODO: Translate correctly from python source.
-        if (!this.isWorldValid(this.worldString)){
+        if (!this.isWorldValid(this.worldString)) {
             throw new RuntimeException("World String is Invalid");
         }
 
         this.worldMap = new ArrayList<>();
         String[] worldLines = this.worldString.split("\n");
-         for (int y = 0; y < worldLines.length; y++){
-             ArrayList<MapTile> row = new ArrayList<MapTile>();
-             String worldRow =  worldLines[y];
-             ArrayList<String> cell = new ArrayList<>(List.of(worldRow.split("\\|")));
-             cell.removeIf(element -> Objects.equals(element, "")); // Has this effect --- for(String element: cell){if (Objects.equals(element, "")){cell.remove(element);}}
-             for (int x = 0; x < cell.size(); x++){
-                 System.out.println(x);
-                 switch (cell.get(x)){
-                     case "  " -> row.add(null);
-                     case "ST" -> {row.add(new StartTile(x, y));
-                                    this.startLocation = new int[]{x, y};}
-                     case "VT" -> row.add(new VictoryTile(x, y));
-                 }
+        for (int y = 0; y < worldLines.length; y++) {
+            ArrayList<MapTile> row = new ArrayList<MapTile>();
+            String worldRow = worldLines[y];
+            ArrayList<String> cell = new ArrayList<>(List.of(worldRow.split("\\|")));
+            cell.removeIf(element -> Objects.equals(element, "")); // Has this effect --- for(String element: cell){if (Objects.equals(element, "")){cell.remove(element);}}
+            for (int x = 0; x < cell.size(); x++) {
+                switch (cell.get(x)) {
+                    case "  " -> row.add(null);
+                    case "ST" -> {
+                        row.add(new StartTile(x, y));
+                        this.startLocation = new int[]{x, y};
+                    }
+                    case "VT" -> row.add(new VictoryTile(x, y));
+                }
 
-             }
-             this.worldMap.add(row);
-         }
+            }
+            this.worldMap.add(row);
+        }
     }
 
-    public MapTile GetTile(int x, int y){
-        if (x < 0 || y < 0){
+    public MapTile GetTile(int x, int y) {
+        if (x < 0 || y < 0) {
             return null;
         }
-        try{
+        try {
             return worldMap.get(y).get(x);
-        }catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             return null;
         }
     }
-
-
-
-    public static void main(String[] args){
+}
+/*    public static void main(String[] args){
         World newWorld =  new World();
         System.out.println(newWorld.isWorldValid(newWorld.worldString));
         newWorld.parseWorld();
         System.out.println(newWorld.worldMap);
     }
 
-}
+}*/
 
 
 

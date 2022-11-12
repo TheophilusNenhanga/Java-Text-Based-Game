@@ -1,5 +1,9 @@
 package Game;
 
+import Player.Player;
+import World.*;
+
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -134,7 +138,16 @@ public class Game {
     }
 
     public void playGame() {
+        System.out.println("-----CAVER-----\n");
+        World world = new World();
+        world.parseWorld();
+        int[] startLocation = world.startLocation;
+        Player player = new Player(startLocation[0], startLocation[1]);
 
+        while(player.isAlive() && !player.victory){
+            MapTile room = world.GetTile(player.x, player.y);
+            room.introText();
+        }
     }
 
 }
