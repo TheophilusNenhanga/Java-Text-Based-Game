@@ -9,7 +9,7 @@ public class Enemies {
     int score;
     int reward;
     int defence;
-    String type;
+    public String type;
     Random random;
 
     public Enemies(){

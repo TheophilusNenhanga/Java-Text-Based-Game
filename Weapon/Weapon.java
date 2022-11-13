@@ -13,6 +13,7 @@ public class Weapon extends Items {
     int defence;
     int value;
     HashMap<Integer, Attack> attacks;
+    String typeAffect;
 
     public Weapon() {
         this.name = "Weapon";
@@ -21,6 +22,7 @@ public class Weapon extends Items {
         this.enchantment = null;
         this.defence = 0;
         this.value = 0;
+        this.typeAffect = "";
     }
 
     @Override

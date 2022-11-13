@@ -1,5 +1,6 @@
 package World;
 
+import Enemies.Enemies;
 import Player.Player;
 
 import java.util.Objects;
@@ -10,6 +11,7 @@ public abstract class MapTile {
     int x;
     int y;
     boolean completed;
+    public Enemies enemy;
 
     Random random;
 
@@ -18,6 +20,7 @@ public abstract class MapTile {
         this.y = y;
         this.completed = false;
         this.random = new Random();
+        this.enemy = null;
     }
 
     public void introText(){

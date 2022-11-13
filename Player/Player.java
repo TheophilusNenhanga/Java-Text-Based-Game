@@ -2,11 +2,16 @@ package Player;
 
 import Consumables.CrustyBread;
 import Defensive.Defensive;
+import Enemies.Enemies;
 import SuperClasses.Items;
 import Weapon.Hand;
 import Weapon.RustySword;
 import Weapon.Weapon;
-import World.World;
+import Game.Game;
+import World.EnemyTile;
+import World.MapTile;
+
+import java.util.Objects;
 
 
 public class Player {
@@ -36,6 +41,36 @@ public class Player {
         this.hp = 100;
         this.score = 0;
         this.boss = 0;
+    }
+
+    private void fight(Items bestWeapon, Enemies enemy){
+        // TODO: add implementation.
+        String affectType = bestWeapon.typeAffect;
+
+        if (Objects.equals(bestWeapon.typeAffect, enemy.type)){
+            ;
+            // TODO: Fix weapons and Items
+        }
+    }
+
+    public void attack() {
+        MapTile room = Game.world.GetTile(this.x, this.y);
+        Enemies enemy;
+        if (room.enemy != null) {
+            enemy = room.enemy;
+        } else {
+            System.out.println("There is no enemy in this room.");
+            return;
+        }
+
+        if (!enemy.isAlive()){
+            System.out.println("The enemy is dead.");
+            return;
+        }
+
+        Items bestWeapon = this.mostDamage();
+        fight(bestWeapon, enemy);
+
     }
 
     public boolean isAlive(){
@@ -103,10 +138,6 @@ public class Player {
     }
 
     public void heal(){
-        // TODO: Add implementation
-    }
-
-    public void attack(){
         // TODO: Add implementation
     }
 }

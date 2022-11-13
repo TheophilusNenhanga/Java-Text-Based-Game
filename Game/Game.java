@@ -2,13 +2,12 @@ package Game;
 
 import Player.Player;
 import World.*;
-
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
     Scanner scanner;
+    public static World world;
     String PlayerStory = """
             ...CAVER...
 
@@ -49,6 +48,7 @@ public class Game {
 
     public Game(){
         this.scanner = new Scanner(System.in);
+        world = new World();
     }
 
     public void leaderboard(){
@@ -139,7 +139,7 @@ public class Game {
 
     public void playGame() {
         System.out.println("-----CAVER-----\n");
-        World world = new World();
+
         world.parseWorld();
         int[] startLocation = world.startLocation;
         Player player = new Player(startLocation[0], startLocation[1]);
@@ -147,7 +147,30 @@ public class Game {
         while(player.isAlive() && !player.victory){
             MapTile room = world.GetTile(player.x, player.y);
             room.introText();
+
+            room.modifyPlayer(player);
+            if (player.isAlive() && !player.victory){
+                chooseAction(room, player);
+            }else if (!player.isAlive()) {
+                System.out.println("""
+                        Your journey has come to an early end.
+                                ---GAME OVER---
+                        """);
+                end(player);
+            } else if (player.isAlive() && player.victory) {
+                end(player);
+            }
         }
     }
+
+    public void chooseAction(MapTile room, Player player){
+        // TODO: Add implementation
+    }
+
+    public void end(Player player){
+        // TODO: Add implementation.
+    }
+
+
 
 }
