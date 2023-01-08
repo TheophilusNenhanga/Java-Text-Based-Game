@@ -149,7 +149,7 @@ public class Game {
             String actionInput = scanner.nextLine();
             for (Action act: availableActions){
                 if(act.hotkey.equals(actionInput) || act.name.equals(actionInput) ){
-                    System.out.println(act.name);
+                    act.actionPerformed();
                 }
             }
         }
@@ -166,24 +166,24 @@ public class Game {
         ArrayList<Action> actions = new ArrayList<Action>();
         System.out.println("\nChoose an Action:");
         if (player != null){
-            Action action = new Action.details();
+            Action action = new Action.details(player);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }
         if (player.inventory != null){
-            Action action = new Action.inventory();
+            Action action = new Action.inventory(player);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }
 
         if (world.getTile(room.x,room.y - 1 ) != null){
-            Action action = new Action.north();
+            Action action = new Action.north(player);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }
 
         if (world.getTile(room.x,room.y + 1 ) != null){
-            Action action = new Action.south();
+            Action action = new Action.south(player);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }
