@@ -14,7 +14,7 @@ public class World {
     public World() {
         this.worldString = """
                 |  |  |ST|
-                |  |  |  |
+                |  |CT|CT|
                 |  |VT|  |
                 """;
 
@@ -64,6 +64,7 @@ public class World {
             for (int x = 0; x < cell.size(); x++) {
                 switch (cell.get(x)) {
                     case "  " -> row.add(null);
+                    case "CT"-> row.add(new CorridorTile(x, y));
                     case "ST" -> {
                         row.add(new StartTile(x, y));
                         this.startLocation = new int[]{x, y};
@@ -76,7 +77,7 @@ public class World {
         }
     }
 
-    public MapTile GetTile(int x, int y) {
+    public MapTile getTile(int x, int y) {
         if (x < 0 || y < 0) {
             return null;
         }

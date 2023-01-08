@@ -8,9 +8,9 @@ import Weapon.Hand;
 import Weapon.RustySword;
 import Weapon.Weapon;
 import Game.Game;
-import World.EnemyTile;
 import World.MapTile;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 
@@ -18,7 +18,7 @@ public class Player {
 
     public boolean victory;
     public boolean kindness;
-    public Items[] inventory;
+    public ArrayList<Items> inventory;
     public int x;
     public int y;
     public int gold;
@@ -32,7 +32,7 @@ public class Player {
         // TODO: Store objects of different types in one container.
         this.victory = false;
         this.kindness = false;
-        this.inventory = new Items[]{new Hand(), new RustySword(), new CrustyBread()};
+        this.inventory = new ArrayList<>();
         this.x = x;
         this.y = y;
         this.gold = 15;
@@ -41,6 +41,10 @@ public class Player {
         this.hp = 100;
         this.score = 0;
         this.boss = 0;
+
+        this.inventory.add(new Hand());
+        this.inventory.add(new CrustyBread());
+        this.inventory.add(new RustySword());
     }
 
     private void fight(Items bestWeapon, Enemies enemy){
@@ -54,7 +58,7 @@ public class Player {
     }
 
     public void attack() {
-        MapTile room = Game.world.GetTile(this.x, this.y);
+        MapTile room = Game.world.getTile(this.x, this.y);
         Enemies enemy;
         if (room.enemy != null) {
             enemy = room.enemy;

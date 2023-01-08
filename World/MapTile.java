@@ -8,8 +8,8 @@ import java.util.Random;
 
 public abstract class MapTile {
 
-    int x;
-    int y;
+    public int x;
+    public int y;
     boolean completed;
     public Enemies enemy;
 

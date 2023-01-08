@@ -1,12 +1,11 @@
 package Game;
 
+import Actions.Action;
 import Files.FileReader;
 import Player.Player;
 import World.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOError;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -122,7 +121,7 @@ public class Game {
         Player player = new Player(startLocation[0], startLocation[1]);
 
         while(player.isAlive() && !player.victory){
-            MapTile room = world.GetTile(player.x, player.y);
+            MapTile room = world.getTile(player.x, player.y);
             room.introText();
 
             room.modifyPlayer(player);
@@ -141,13 +140,55 @@ public class Game {
     }
 
     public void chooseAction(MapTile room, Player player){
-        // TODO: Add implementation
+        // TODO: Add implementation from python source (This is the reason nothing happens on the starting tile.)
+        Action action = null;
+
+        while (action == null){
+            ArrayList<Action> availableActions = new ArrayList<>();
+            availableActions = this.getAvailableActions(room, player);
+            String actionInput = scanner.nextLine();
+            for (Action act: availableActions){
+                if(act.hotkey.equals(actionInput) || act.name.equals(actionInput) ){
+                    System.out.println(act.name);
+                }
+            }
+        }
     }
 
     public void end(Player player){
-        // TODO: Add implementation.
+        // TODO: Add implementation. end(Player player)
+        // How to clear the console: https://stackoverflow.com/questions/2979383/how-to-clear-the-console
+        System.out.println("\n You will now be taken to the exit screen \n");
+
     }
 
+    public ArrayList<Action> getAvailableActions(MapTile room, Player player){
+        ArrayList<Action> actions = new ArrayList<Action>();
+        System.out.println("\nChoose an Action:");
+        if (player != null){
+            Action action = new Action.details();
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+        if (player.inventory != null){
+            Action action = new Action.inventory();
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
 
+        if (world.getTile(room.x,room.y - 1 ) != null){
+            Action action = new Action.north();
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        if (world.getTile(room.x,room.y + 1 ) != null){
+            Action action = new Action.south();
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        return actions;
+    }
 
 }
