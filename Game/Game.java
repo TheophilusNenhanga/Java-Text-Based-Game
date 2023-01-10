@@ -143,17 +143,16 @@ public class Game {
         // TODO: Add implementation from python source (This is the reason nothing happens on the starting tile.)
         Action action = null;
 
-        while (action == null){
-            ArrayList<Action> availableActions = new ArrayList<>();
-            availableActions = this.getAvailableActions(room, player);
-            String actionInput = scanner.nextLine();
-            for (Action act: availableActions){
-                if(act.hotkey.equals(actionInput) || act.name.equals(actionInput) ){
-                    act.actionPerformed();
-                }
+        ArrayList<Action> availableActions = new ArrayList<>();
+        availableActions = this.getAvailableActions(room, player);
+        String actionInput = scanner.nextLine();
+        for (Action act: availableActions){
+            if(act.hotkey.equals(actionInput) || act.name.equals(actionInput) ){
+                act.actionPerformed();
             }
         }
     }
+
 
     public void end(Player player){
         // TODO: Add implementation. end(Player player)
@@ -184,6 +183,24 @@ public class Game {
 
         if (world.getTile(room.x,room.y + 1 ) != null){
             Action action = new Action.south(player);
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        if (world.getTile(room.x+1,room.y) != null){
+            Action action = new Action.east(player);
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        if (world.getTile(room.x-1,room.y + 1 ) != null){
+            Action action = new Action.west(player);
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        if (world.getTile(room.x, room.y) instanceof EnemyTile){
+            Action action = new Action.attack(player);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }

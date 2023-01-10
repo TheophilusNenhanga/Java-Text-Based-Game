@@ -18,6 +18,6 @@ public class Consumable extends Items {
 
     @Override
     public String toString() {
-        return this.name + " (+" + this.healingValue + "HP)";
+        return this.name + "\t\t(+" + this.healingValue + "HP)";
     }
 }

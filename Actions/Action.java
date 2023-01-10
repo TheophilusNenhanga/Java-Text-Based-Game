@@ -84,6 +84,11 @@ public class Action {
             this.name = "Go North";
             this.hotkey = "n";
         }
+
+        @Override
+        public void actionPerformed() {
+            player.move(0, -1);
+        }
     }
 
     public static class east extends Action{
@@ -91,6 +96,10 @@ public class Action {
             super(player);
             this.name = "Go East";
             this.hotkey = "e";
+        }
+        @Override
+        public void actionPerformed(){
+            player.move(1, 0);
         }
     }
 
@@ -100,6 +109,10 @@ public class Action {
             this.name = "Go South";
             this.hotkey = "s";
         }
+        @Override
+        public void actionPerformed() {
+            player.move(0, 1);
+        }
     }
 
     public static class west extends Action{
@@ -107,6 +120,10 @@ public class Action {
             super(player);
             this.name = "Go West";
             this.hotkey = "w";
+        }
+        @Override
+        public void actionPerformed() {
+            player.move(-1, 0);
         }
     }
 }

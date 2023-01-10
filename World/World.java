@@ -13,7 +13,7 @@ public class World {
 
     public World() {
         this.worldString = """
-                |  |  |ST|
+                |  |ET|ST|
                 |  |CT|CT|
                 |  |VT|  |
                 """;
@@ -65,6 +65,7 @@ public class World {
                 switch (cell.get(x)) {
                     case "  " -> row.add(null);
                     case "CT"-> row.add(new CorridorTile(x, y));
+                    case "ET"-> row.add(new EnemyTile(x, y, 1));
                     case "ST" -> {
                         row.add(new StartTile(x, y));
                         this.startLocation = new int[]{x, y};
