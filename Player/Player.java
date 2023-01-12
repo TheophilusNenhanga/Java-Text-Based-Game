@@ -29,7 +29,6 @@ public class Player {
     public int boss;
 
     public Player(int x, int y) {
-        // TODO: Store objects of different types in one container.
         this.victory = false;
         this.kindness = false;
         this.inventory = new ArrayList<>();
@@ -48,32 +47,10 @@ public class Player {
     }
 
     private void fight(Items bestWeapon, Enemies enemy){
-        // TODO: add implementation.
-        String affectType = bestWeapon.typeAffect;
 
-        if (Objects.equals(bestWeapon.typeAffect, enemy.type)){
-            ;
-            // TODO: Fix weapons and Items
-        }
     }
 
     public void attack() {
-        MapTile room = Game.world.getTile(this.x, this.y);
-        Enemies enemy;
-        if (room.enemy != null) {
-            enemy = room.enemy;
-        } else {
-            System.out.println("There is no enemy in this room.");
-            return;
-        }
-
-        if (!enemy.isAlive()){
-            System.out.println("The enemy is dead.");
-            return;
-        }
-
-        Items bestWeapon = this.mostDamage();
-        fight(bestWeapon, enemy);
 
     }
 
@@ -100,15 +77,6 @@ public class Player {
 
     public void moveWest(){
         this.move(-1, 0);
-    }
-
-    public void printInventory(){
-        System.out.println("---Inventory---\n");
-        for (Items item: this.inventory){
-            System.out.println("* " + item);
-        }
-        System.out.println("Gold: " + this.gold);
-        System.out.println("Crystals: " + this.crystals);
     }
 
     public Items mostDamage(){
@@ -142,6 +110,10 @@ public class Player {
     }
 
     public void heal(){
-        // TODO: Add implementation
+
+    }
+
+    public boolean hasName(){
+        return !this.name.equals("");
     }
 }

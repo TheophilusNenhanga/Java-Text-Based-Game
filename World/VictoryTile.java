@@ -4,29 +4,34 @@ import Player.Player;
 
 public class VictoryTile extends MapTile{
     int gold;
-    boolean goldClaimed;
+    int score;
+    boolean rewardClaimed;
 
     public VictoryTile(int x, int y) {
         super(x, y);
         gold = random.nextInt(100, 200);
-        goldClaimed = false;
+        score = 300;
+        rewardClaimed = false;
     }
 
     public void modifyPlayer(Player player){
-        player.score += 5;
-        if (!this.goldClaimed){
-            this.goldClaimed = true;
+        if (!this.rewardClaimed){
+            this.rewardClaimed = true;
             player.gold += this.gold;
+            player.score += this.score;
             System.out.println("+"+this.gold+ " gold added");
+            System.out.println("+"+this.score+ " score added");
+
+            player.victory = true;
         }
 
     }
 
     public void introText(){
-        if (!this.goldClaimed) {
+        if (!this.rewardClaimed) {
             System.out.println("""
                     You see the light.
-                    Before you leave the cave take your gold.
+                    Before you leave the cave take your reward.
                     """);
         }else{
             System.out.println("""

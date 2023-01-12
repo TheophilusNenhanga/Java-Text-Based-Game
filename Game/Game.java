@@ -1,7 +1,8 @@
 package Game;
 
 import Actions.Action;
-import Files.FileReader;
+import Files.FileRead;
+import Files.FileWrite;
 import Player.Player;
 import World.*;
 
@@ -20,20 +21,24 @@ public class Game {
     }
 
     public void playerStory(){
-        FileReader fileReader = new FileReader("Files/playerStory.txt");
-        fileReader.printContents();
+        FileRead fileRead = new FileRead("Files/playerStory.txt");
+        fileRead.printContents();
         System.out.println("\nWhat would you like to do\n");
     }
 
     public void leaderboard(){
-        FileReader fileReader = new FileReader("Files/leaderboard.txt");
-        fileReader.printContents();
+        FileRead fileRead = new FileRead("Files/leaderboard.dat");
+        if (!fileRead.isEmpty()){
+            fileRead.printContents();
+            System.out.println("\nWhat would you like to do\n");
+        }
+        System.out.println("\nThe leaderboard is empty --- Play the game first");
         System.out.println("\nWhat would you like to do\n");
     }
 
     public void credits(){
-        FileReader fileReader = new FileReader("Files/credits.txt");
-        fileReader.printContents();
+        FileRead fileRead = new FileRead("Files/credits.txt");
+        fileRead.printContents();
         System.out.println("\nWhat would you like to do\n");
     }
 
@@ -123,17 +128,17 @@ public class Game {
         while(player.isAlive() && !player.victory){
             MapTile room = world.getTile(player.x, player.y);
             room.introText();
-
             room.modifyPlayer(player);
-            if (player.isAlive() && !player.victory){
+
+            if (player.victory && player.isAlive()){
+                end(player);
+            }else if (player.isAlive() && !player.victory){
                 chooseAction(room, player);
             }else if (!player.isAlive()) {
                 System.out.println("""
                         Your journey has come to an early end.
                                 ---GAME OVER---
                         """);
-                end(player);
-            } else if (player.isAlive() && player.victory) {
                 end(player);
             }
         }
@@ -155,10 +160,28 @@ public class Game {
 
 
     public void end(Player player){
-        // TODO: Add implementation. end(Player player)
+        if (player.hasName()){
+            ;
+        }else{
+            System.out.println("Enter your name: \n");
+            String name = this.scanner.nextLine();
+            if (name.equals("")){
+                end(player);
+            }
+            player.name = name;
+        }
         // How to clear the console: https://stackoverflow.com/questions/2979383/how-to-clear-the-console
-        System.out.println("\n You will now be taken to the exit screen \n");
 
+        try {
+            FileWrite leaderboardWriter = new FileWrite("Files/leaders.txt");
+            leaderboardWriter.fileWrite(player.name + "-" + player.score);
+            leaderboardWriter.fileClose();
+        } catch (RuntimeException e){
+            System.out.println("Error: Failed to write to file");
+        }
+
+        System.out.println("\n You will now be taken to the exit screen \n");
+        exitScreen();
     }
 
     public ArrayList<Action> getAvailableActions(MapTile room, Player player){

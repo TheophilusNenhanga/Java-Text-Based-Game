@@ -23,6 +23,7 @@ public class Action {
         @Override
         public void actionPerformed() {
             System.out.println("\n-----Player Details-----");
+            System.out.println("Victory: " +  this.player.victory);
             System.out.println("Name: "+this.player.name);
             System.out.println("x: "+this.player.x);
             System.out.println("y: "+this.player.y);
@@ -40,6 +41,8 @@ public class Action {
         @Override
         public void actionPerformed() {
             System.out.println("\n-----Player Inventory-----");
+            System.out.println("Gold: " + this.player.gold);
+            System.out.println("Crystals: " + this.player.crystals);
             for (int i=0; i<this.player.inventory.size(); i++){
                 System.out.println(i+1 + ". " + this.player.inventory.get(i));
             }
@@ -87,7 +90,7 @@ public class Action {
 
         @Override
         public void actionPerformed() {
-            player.move(0, -1);
+            player.moveNorth();
         }
     }
 
@@ -99,7 +102,7 @@ public class Action {
         }
         @Override
         public void actionPerformed(){
-            player.move(1, 0);
+            player.moveEast();
         }
     }
 
@@ -111,7 +114,7 @@ public class Action {
         }
         @Override
         public void actionPerformed() {
-            player.move(0, 1);
+            player.moveSouth();
         }
     }
 
@@ -122,8 +125,6 @@ public class Action {
             this.hotkey = "w";
         }
         @Override
-        public void actionPerformed() {
-            player.move(-1, 0);
-        }
+        public void actionPerformed() { player.moveWest(); }
     }
 }
