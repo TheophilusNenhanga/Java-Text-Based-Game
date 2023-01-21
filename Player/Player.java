@@ -1,17 +1,17 @@
 package Player;
 
-import Consumables.CrustyBread;
+import Consumable.CrustyBread;
 import Defensive.Defensive;
-import Enemies.Enemies;
+import Enemy.Enemy;
 import SuperClasses.Items;
 import Weapon.Hand;
 import Weapon.RustySword;
 import Weapon.Weapon;
-import Game.Game;
+import World.EnemyTile;
 import World.MapTile;
 
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.Random;
 
 
 public class Player {
@@ -27,6 +27,7 @@ public class Player {
     public float hp;
     public int score;
     public int boss;
+    public static Random random = new Random();
 
     public Player(int x, int y) {
         this.victory = false;
@@ -46,12 +47,38 @@ public class Player {
         this.inventory.add(new RustySword());
     }
 
-    private void fight(Items bestWeapon, Enemies enemy){
+    private void fight(Weapon bestWeapon, Enemy enemy){
 
     }
 
-    public void attack() {
+    public void attack(EnemyTile room) {
 
+        Enemy enemy = room.enemy;
+
+        if (!enemy.isAlive()){
+            return;
+        }
+
+        double defenceMultiplier =  0.1 * enemy.defence;
+        double attackMultiplier = 1;
+        Weapon bestWeapon = this.mostDamage();
+        int damageDealt = (int) ((bestWeapon.damage * attackMultiplier) - (bestWeapon.damage * defenceMultiplier));
+        enemy.hp =  (int) (enemy.hp - damageDealt);
+        System.out.printf("You deal %d damage\n", damageDealt);
+
+        if (!enemy.isAlive() && !room.completed){
+            System.out.printf("You killed the %s\n", enemy.name);
+            this.gold += enemy.reward;
+            System.out.printf("You receive +%d gold.\n", enemy.reward);
+            this.score += enemy.score;
+            int amount = random.nextInt(0, 2);
+            if (amount != 0){
+                this.crystals += amount;
+                System.out.printf("You receive +%d crystals\n\n", amount);
+            }
+        }else{
+            System.out.printf("The %s has %d health remaining\n\n", enemy.name, Math.round(enemy.hp));
+        }
     }
 
     public boolean isAlive(){
@@ -79,34 +106,23 @@ public class Player {
         this.move(-1, 0);
     }
 
-    public Items mostDamage(){
-        Items bestWeapon = new Items();
-        for (Items item: this.inventory){
-            if (item instanceof Weapon){
-                if (item.damage > 0){
-                    bestWeapon = item;
+    public Weapon mostDamage(){
+        Weapon bestWeapon = new Hand();
+        for (int i = 0; i<this.inventory.size(); i++){
+            try{
+                Weapon currentWeapon = (Weapon) this.inventory.get(i);
+                if (currentWeapon.damage > bestWeapon.damage){
+                    bestWeapon = currentWeapon;
                 }
-                if (item.damage > bestWeapon.damage){
-                    bestWeapon = item;
-                }
+            }catch (RuntimeException e){
+                ;
             }
         }
         return bestWeapon;
     }
 
-    public Items mostDefence(){
-        Items bestDefence = new Items();
-        for (Items item: this.inventory){
-            if (item instanceof Defensive){
-                if (item.defence > 0){
-                    bestDefence = item;
-                }
-                if (item.defence > bestDefence.defence){
-                    bestDefence = item;
-                }
-            }
-        }
-        return bestDefence;
+    public Defensive mostDefence(){
+        return null;
     }
 
     public void heal(){

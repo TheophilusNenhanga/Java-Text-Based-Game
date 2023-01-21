@@ -2,10 +2,10 @@ package Defensive;
 
 import SuperClasses.Items;
 
-public class Defensive extends Items {
+public class Defensive implements Items {
     int value;
     String name;
-    float defence;
+    public float defence;
     Boolean sellable;
 
     public Defensive(){

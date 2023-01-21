@@ -1,6 +1,6 @@
 package Game;
 
-import Actions.Action;
+import Action.Action;
 import Files.FileRead;
 import Files.FileWrite;
 import Player.Player;
@@ -186,7 +186,7 @@ public class Game {
 
     public ArrayList<Action> getAvailableActions(MapTile room, Player player){
         ArrayList<Action> actions = new ArrayList<Action>();
-        System.out.println("\nChoose an Action:");
+        System.out.println("\n\nChoose an Action:");
         if (player != null){
             Action action = new Action.details(player);
             actions.add(action);
@@ -222,8 +222,8 @@ public class Game {
             System.out.println(action.hotkey + ": " + action.name);
         }
 
-        if (world.getTile(room.x, room.y) instanceof EnemyTile){
-            Action action = new Action.attack(player);
+        if (world.getTile(room.x, room.y) instanceof EnemyTile && !room.completed){
+            Action action = new Action.attack(player, room);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }

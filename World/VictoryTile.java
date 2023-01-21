@@ -24,7 +24,6 @@ public class VictoryTile extends MapTile{
 
             player.victory = true;
         }
-
     }
 
     public void introText(){

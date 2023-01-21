@@ -1,10 +1,10 @@
 package World;
 
-import Enemies.*;
+import Enemy.*;
 import Player.Player;
 
 public class EnemyTile extends MapTile{
-    Enemies enemy;
+    public Enemy enemy;
 
     public EnemyTile(int x, int y, int level){
         super(x, y);
@@ -25,7 +25,7 @@ public class EnemyTile extends MapTile{
         }
     }
 
-    public void IntroText(){
+    public void introText(){
         if (this.enemy.isAlive()){
             this.enemy.aliveText();
         }else{
@@ -49,6 +49,5 @@ public class EnemyTile extends MapTile{
         }else{
             this.completed = true;
         }
-        // TODO: Add implementation.
     }
 }

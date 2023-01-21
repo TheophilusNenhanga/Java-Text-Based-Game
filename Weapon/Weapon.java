@@ -5,13 +5,12 @@ import SuperClasses.Items;
 
 import java.util.HashMap;
 
-public class Weapon extends Items {
-    String name;
-    String description;
-    int damage;
-    Enchantment enchantment;
-    int defence;
-    int value;
+public class Weapon implements Items {
+    public String name;
+    public String description;
+    public int damage;
+    public Enchantment enchantment;
+    public int value;
     HashMap<Integer, Attack> attacks;
     String typeAffect;
 
@@ -20,7 +19,6 @@ public class Weapon extends Items {
         this.description = "Used for attacking";
         this.damage = 0;
         this.enchantment = null;
-        this.defence = 0;
         this.value = 0;
         this.typeAffect = "";
     }
