@@ -14,7 +14,6 @@ public class Game {
     Scanner scanner;
     public static World world;
 
-
     public Game(){
         this.scanner = new Scanner(System.in);
         world = new World();

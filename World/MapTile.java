@@ -13,14 +13,11 @@ public abstract class MapTile {
     public boolean completed;
     public Enemy enemy;
 
-    Random random;
+    public static Random random = new Random();
 
     public MapTile(int x, int y){
         this.x = x;
         this.y = y;
-        this.completed = false;
-        this.random = new Random();
-        this.enemy = null;
     }
 
     public void introText(){
@@ -35,6 +32,7 @@ public abstract class MapTile {
 
     }
 
+    // TODO: Test that this method works correctly. Looking for key words
     public boolean lookingForKeyWords(String userInput, String searchString){
         String[] split = userInput.split(" ");
         for (String word : split){

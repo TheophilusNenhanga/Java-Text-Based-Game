@@ -8,6 +8,7 @@ public class EnemyTile extends MapTile{
 
     public EnemyTile(int x, int y, int level){
         super(x, y);
+        this.completed = false;
 
         int r = random.nextInt(0, 10);
         if (r < 1){

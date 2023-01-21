@@ -1,6 +1,5 @@
 package Action;
 
-import Enemy.Enemy;
 import Player.Player;
 import World.EnemyTile;
 import World.MapTile;
