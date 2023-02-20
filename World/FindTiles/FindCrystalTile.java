@@ -1,7 +1,7 @@
-package World;
+package World.FindTiles;
 
 import Player.Player;
-class FindCrystalTile extends FindTile {
+public class FindCrystalTile extends FindTile {
     boolean crystalClaimed;
     int crystals;
     public FindCrystalTile(int x, int y) {

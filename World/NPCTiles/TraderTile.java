@@ -1,13 +1,14 @@
-package World;
+package World.NPCTiles;
 
-import NPC.WeaponSmith;
+import NPC.Trader;
 import Player.Player;
+import World.MapTile;
 
-public class WeaponSmithTile extends MapTile{
-    WeaponSmith trader;
-    public WeaponSmithTile(int x, int y){
+public class TraderTile extends MapTile {
+    Trader trader;
+    public TraderTile(int x, int y){
         super(x, y);
-        this.trader = new WeaponSmith();
+        this.trader = new Trader();
     }
 
     @Override
@@ -17,7 +18,7 @@ public class WeaponSmithTile extends MapTile{
         );
     }
 
-    public void trade(Player buyer, WeaponSmith seller){
+    public void trade(Player buyer, Trader seller){
         //TODO: Add implementation - trading with the NPC
     }
 }

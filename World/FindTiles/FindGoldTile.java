@@ -1,7 +1,6 @@
-package World;
+package World.FindTiles;
 
 import Player.Player;
-import World.FindTile;
 
 public class FindGoldTile extends FindTile {
     boolean goldClaimed;

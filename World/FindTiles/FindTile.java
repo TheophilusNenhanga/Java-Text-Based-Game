@@ -1,8 +1,9 @@
-package World;
+package World.FindTiles;
 
 import Player.Player;
+import World.MapTile;
 
-public class FindTile extends MapTile{
+public class FindTile extends MapTile {
 
     public FindTile(int x, int y) {
         super(x, y);

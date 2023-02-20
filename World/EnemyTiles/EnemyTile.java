@@ -1,9 +1,10 @@
-package World;
+package World.EnemyTiles;
 
 import Enemy.*;
 import Player.Player;
+import World.MapTile;
 
-public class EnemyTile extends MapTile{
+public class EnemyTile extends MapTile {
     public Enemy enemy;
 
     public EnemyTile(int x, int y, int level){

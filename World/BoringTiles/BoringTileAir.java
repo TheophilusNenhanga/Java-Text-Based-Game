@@ -1,8 +1,6 @@
-package World;
+package World.BoringTiles;
 
-import World.BoringTile;
-
-class BoringTileAir extends BoringTile {
+public class BoringTileAir extends BoringTile {
 
     public BoringTileAir(int x, int y) {
         super(x, y);

@@ -7,8 +7,7 @@ import SuperClasses.Items;
 import Weapon.Hand;
 import Weapon.RustySword;
 import Weapon.Weapon;
-import World.EnemyTile;
-import World.MapTile;
+import World.EnemyTiles.EnemyTile;
 
 import java.util.ArrayList;
 import java.util.Random;

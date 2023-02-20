@@ -1,7 +1,7 @@
-package World;
+package World.CorridorTiles;
 
 
-class CorridorTileFire extends CorridorTile {
+public class CorridorTileFire extends CorridorTile {
     public CorridorTileFire(int x, int y) {
         super(x, y);
     }

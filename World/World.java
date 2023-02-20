@@ -1,7 +1,11 @@
 package World;
 
-import Enemy.AeroMancer;
-import Enemy.PyroMancer;
+import World.BoringTiles.*;
+import World.CorridorTiles.*;
+import World.EnemyTiles.*;
+import World.FindTiles.*;
+import World.LevelTiles.*;
+import World.NPCTiles.*;
 
 import java.util.*;
 
@@ -71,7 +75,6 @@ public class World {
     }
 
     public void parseWorld() {
-        // TODO: Translate correctly from python source.
         if (!this.isWorldValid(this.worldString)) {
             throw new RuntimeException("World String is Invalid");
         }
@@ -107,24 +110,24 @@ public class World {
                     case "EN4"-> row.add(new EnemyTile(x, y, 4));
                     case "FG "-> row.add(new FindGoldTile(x, y));
                     case "TT "-> row.add(new TraderTile(x, y));
-                    //case "GE "-> row.add(new GeoEnemy(x, y));
-                    //case "HE "-> row.add(new HydroEnemy(x, y));
-                    //case "PE "-> row.add(new PyroEnemy(x, y));
-                    //case "AE "-> row.add(new AeroEnemy(x, y));
-                    //case "GB "-> row.add(new GeoBoss(x, y));
-                    //case "HB "-> row.add(new HydroBoss(x, y));
-                    //case "PB "-> row.add(new PyroBoss(x, y));
-                    //case "AB "-> row.add(new AeroBoss(x, y));
-                    //case "ET "-> row.add(new EnchanterTile(x, y));
+                    case "GE "-> row.add(new GeoEnemyTile(x, y));
+                    case "HE "-> row.add(new HydroEnemyTile(x, y));
+                    case "PE "-> row.add(new PyroEnemyTile(x, y));
+                    case "AE "-> row.add(new AeroEnemyTile(x, y));
+                    case "GB "-> row.add(new GeoBossTile(x, y));
+                    case "HB "-> row.add(new HydroBossTile(x, y));
+                    case "PB "-> row.add(new PyroBossTile(x, y));
+                    case "AB "-> row.add(new AeroBossTile(x, y));
+                    case "ET "-> row.add(new EnchanterTile(x, y));
                     case "FC "-> row.add(new FindCrystalTile(x, y));
-                    //case "QT "-> row.add(new QuestTile(x, y));
-                    //case "FQI"-> row.add(new FindQuestItemTile(x, y));
+                    case "QT "-> row.add(new QuestTile(x, y));
+                    case "FQI"-> row.add(new FindQuestItemTile(x, y));
                     case "WST"-> row.add(new WeaponSmithTile(x, y));
                     case "AST"-> row.add(new ArmourSmithTile(x, y));
-                    //case "RCT"-> row.add(new RandomCharacterTile(x, y));
-                    //case "ST1"-> row.add(new StoryTellerOneTile(x, y));
-                    //case "ST2"-> row.add(new StoryTellerTwoTile(x, y));
-                    //case "ST3"-> row.add(new StoryTellerThreeTile(x, y));
+                    case "RCT"-> row.add(new RandomCharacterTile(x, y));
+                    case "ST1"-> row.add(new StoryTellerOneTile(x, y));
+                    case "ST2"-> row.add(new StoryTellerTwoTile(x, y));
+                    case "ST3"-> row.add(new StoryTellerThreeTile(x, y));
                     case "ST " -> {
                         row.add(new StartTile(x, y));
                         this.startLocation = new int[]{x, y};

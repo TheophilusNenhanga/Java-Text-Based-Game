@@ -1,4 +1,6 @@
-package World;
+package World.LevelTiles;
+
+import World.MapTile;
 
 public class LevelFourTile extends MapTile {
     public LevelFourTile(int x, int y){

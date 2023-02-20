@@ -5,6 +5,7 @@ import Files.FileRead;
 import Files.FileWrite;
 import Player.Player;
 import World.*;
+import World.EnemyTiles.EnemyTile;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -169,7 +170,7 @@ public class Game {
             }
             player.name = name;
         }
-        // How to clear the console: https://stackoverflow.com/questions/2979383/how-to-clear-the-console
+        // Not clearing the console anymore - allow the user to look through their game log
 
         try {
             FileWrite leaderboardWriter = new FileWrite("Files/leaders.txt");
@@ -215,7 +216,7 @@ public class Game {
             System.out.println(action.hotkey + ": " + action.name);
         }
 
-        if (world.getTile(room.x-1,room.y + 1 ) != null){
+        if (world.getTile(room.x-1,room.y) != null){
             Action action = new Action.west(player);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);

@@ -1,8 +1,9 @@
-package World;
+package World.BoringTiles;
 
 import Player.Player;
+import World.MapTile;
 
-public class BoringTile extends MapTile{
+public class BoringTile extends MapTile {
 
     public BoringTile(int x, int y) {
         super(x, y);

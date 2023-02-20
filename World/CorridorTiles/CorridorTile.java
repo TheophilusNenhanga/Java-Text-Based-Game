@@ -1,8 +1,9 @@
-package World;
+package World.CorridorTiles;
 
 import Player.Player;
+import World.MapTile;
 
-public class CorridorTile extends MapTile{
+public class CorridorTile extends MapTile {
 
     public CorridorTile(int x, int y) {
         super(x, y);

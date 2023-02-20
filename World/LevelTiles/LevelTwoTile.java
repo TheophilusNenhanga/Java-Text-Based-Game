@@ -1,4 +1,6 @@
-package World;
+package World.LevelTiles;
+
+import World.MapTile;
 
 public class LevelTwoTile extends MapTile {
     public LevelTwoTile(int x, int y){

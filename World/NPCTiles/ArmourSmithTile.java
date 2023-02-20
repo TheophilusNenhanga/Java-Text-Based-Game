@@ -1,9 +1,10 @@
-package World;
+package World.NPCTiles;
 
 import NPC.ArmourSmith;
 import Player.Player;
+import World.MapTile;
 
-public class ArmourSmithTile extends MapTile{
+public class ArmourSmithTile extends MapTile {
     ArmourSmith trader;
     public ArmourSmithTile(int x, int y){
         super(x, y);

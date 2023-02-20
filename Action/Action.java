@@ -1,7 +1,7 @@
 package Action;
 
 import Player.Player;
-import World.EnemyTile;
+import World.EnemyTiles.EnemyTile;
 import World.MapTile;
 
 public class Action {

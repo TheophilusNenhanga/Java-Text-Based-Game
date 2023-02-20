@@ -1,8 +1,6 @@
-package World;
+package World.CorridorTiles;
 
-import World.CorridorTile;
-
-class CorridorTileAir extends CorridorTile {
+public class CorridorTileAir extends CorridorTile {
     public CorridorTileAir(int x, int y) {
         super(x, y);
     }
