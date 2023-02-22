@@ -1,13 +1,12 @@
 package World.EnemyTiles;
 
 import Enemy.*;
-import World.MapTile;
 
-public class HydroEnemyTile extends MapTile {
+public class HydroEnemyTile extends EnemyTile {
     float r;
 
-    public HydroEnemyTile(int x, int y) {
-        super(x, y);
+    public HydroEnemyTile(int x, int y, int level) {
+        super(x, y, level);
         r = random.nextFloat();
         if (r < 0.33) {
             this.enemy = new Hydra();

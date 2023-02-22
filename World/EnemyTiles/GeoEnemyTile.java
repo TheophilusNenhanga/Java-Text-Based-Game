@@ -3,12 +3,11 @@ package World.EnemyTiles;
 import Enemy.Gargoyle;
 import Enemy.Golem;
 import Enemy.Ogre;
-import World.MapTile;
 
-public class GeoEnemyTile extends MapTile {
+public class GeoEnemyTile extends EnemyTile {
         float r;
-        public GeoEnemyTile(int x, int y) {
-            super(x, y);
+        public GeoEnemyTile(int x, int y, int level) {
+            super(x, y, level);
             r = random.nextFloat();
             if (r < 0.33){
                 this.enemy = new Ogre();

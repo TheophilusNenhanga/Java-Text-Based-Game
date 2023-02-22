@@ -10,7 +10,7 @@ public abstract class MapTile {
 
     public int x;
     public int y;
-    public boolean completed;
+    public boolean completed = false;
     public Enemy enemy;
 
     public static Random random = new Random();
@@ -20,14 +20,13 @@ public abstract class MapTile {
         this.y = y;
     }
 
-    public void introText(){
-
-    }
-
     public void modifyPlayer(Player player){
 
     }
 
+    public void introText(){
+
+    }
     public void converse(){
 
     }
@@ -42,5 +41,7 @@ public abstract class MapTile {
         }
         return false;
     }
+
+
 
 }

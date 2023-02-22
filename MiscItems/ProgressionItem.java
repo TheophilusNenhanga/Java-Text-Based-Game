@@ -4,8 +4,8 @@ import SuperClasses.Items;
 
 public abstract class ProgressionItem implements Items{
     public String name;
-    int value = 99999999;
-    public boolean sellable;
+    int value = 999999999;
+    public boolean sellable = false;
 
     @Override
     public String toString() {

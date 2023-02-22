@@ -31,7 +31,7 @@ public class FindCrystalTile extends FindTile {
         if (!this.crystalClaimed){
             this.crystalClaimed = true;
             player.crystals += this.crystals;
-            System.out.println("+" + this.crystals + "crystals added.");
+            System.out.printf("+ %d crystals added.\n", this.crystals);
         }
     }
 }

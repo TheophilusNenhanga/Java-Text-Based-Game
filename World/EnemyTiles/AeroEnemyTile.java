@@ -1,13 +1,12 @@
 package World.EnemyTiles;
 
 import Enemy.*;
-import World.MapTile;
 
-public class AeroEnemyTile extends MapTile {
+public class AeroEnemyTile extends EnemyTile {
     float r;
 
-    public AeroEnemyTile(int x, int y) {
-        super(x, y);
+    public AeroEnemyTile(int x, int y, int level) {
+        super(x, y, level);
         r = random.nextFloat();
         if (r < 0.33) {
             this.enemy = new ThunderBird();

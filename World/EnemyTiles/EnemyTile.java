@@ -35,7 +35,6 @@ public class EnemyTile extends MapTile {
         }
     }
 
-    @Override
     public void modifyPlayer(Player player) {
         if (this.enemy.isAlive()){
             try{
