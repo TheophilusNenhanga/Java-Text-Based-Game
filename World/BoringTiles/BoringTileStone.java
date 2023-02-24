@@ -7,6 +7,9 @@ public class BoringTileStone extends BoringTile {
     }
 
     public void introText(){
-        System.out.println();
+        System.out.println("""
+                IF you are not careful the rocks will crush you.
+                Keep moving forward...
+                """);
     }
 }

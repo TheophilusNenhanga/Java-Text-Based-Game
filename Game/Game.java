@@ -6,6 +6,7 @@ import Files.FileWrite;
 import Player.Player;
 import World.*;
 import World.EnemyTiles.EnemyTile;
+import World.NPCTiles.TraderTile;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -72,9 +73,9 @@ public class Game {
                     this.playerStory();
                     exitScreen();
                 }
-                case "2" -> {this.leaderboard();}
-                case "3" -> {this.credits();}
-                case "4" -> {this.exitGame();}
+                case "2" -> this.leaderboard();
+                case "3" -> this.credits();
+                case "4" -> this.exitGame();
                 default -> System.out.println("Incorrect Input");
             }
         }
@@ -107,11 +108,11 @@ public class Game {
             }
 
             switch (choice){
-                case "1" -> {this.playGame();}
-                case "2" -> {this.playerStory();}
-                case "3" -> {this.leaderboard();}
-                case "4" -> {this.credits();}
-                case "5" -> {this.exitGame();}
+                case "1" -> this.playGame();
+                case "2" -> this.playerStory();
+                case "3" -> this.leaderboard();
+                case "4" -> this.credits();
+                case "5" -> this.exitGame();
                 default -> System.out.println("Incorrect Input");
             }
 
@@ -160,9 +161,7 @@ public class Game {
 
 
     public void end(Player player){
-        if (player.hasName()){
-            ;
-        }else{
+        if (!player.hasName()) {
             System.out.println("Enter your name: \n");
             String name = this.scanner.nextLine();
             if (name.equals("")){
@@ -170,8 +169,6 @@ public class Game {
             }
             player.name = name;
         }
-        // Not clearing the console anymore - allow the user to look through their game log
-
         try {
             FileWrite leaderboardWriter = new FileWrite("Files/leaders.txt");
             leaderboardWriter.fileWrite(player.name + "-" + player.score);
@@ -186,7 +183,7 @@ public class Game {
 
     public ArrayList<Action> getAvailableActions(MapTile room, Player player){
         ArrayList<Action> actions = new ArrayList<Action>();
-        System.out.println("\n\nChoose an Action:");
+        System.out.println("\nChoose an Action:");
         if (player != null){
             Action action = new Action.details(player);
             actions.add(action);
@@ -224,6 +221,12 @@ public class Game {
 
         if (world.getTile(room.x, room.y) instanceof EnemyTile && !room.completed){
             Action action = new Action.attack(player, room);
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        if (world.getTile(room.x, room.y) instanceof TraderTile){
+            Action action = new Action.trade(player);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }

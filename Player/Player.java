@@ -8,9 +8,12 @@ import Weapon.Hand;
 import Weapon.RustySword;
 import Weapon.Weapon;
 import World.EnemyTiles.EnemyTile;
+import World.NPCTiles.TraderTile;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import static Game.Game.world;
 
 
 public class Player {
@@ -34,7 +37,7 @@ public class Player {
         this.inventory = new ArrayList<>();
         this.x = x;
         this.y = y;
-        this.gold = 15;
+        this.gold = 25;
         this.crystals = 5;
         this.name = "";
         this.hp = 100;
@@ -126,6 +129,11 @@ public class Player {
 
     public void heal(){
 
+    }
+
+    public void trade(){
+        TraderTile room = (TraderTile) world.getTile(this.x, this.y);
+        room.checkIfTrade(this);
     }
 
     public boolean hasName(){

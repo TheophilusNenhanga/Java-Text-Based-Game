@@ -66,6 +66,11 @@ public class Action {
             this.name = "Trade";
             this.hotkey = "t";
         }
+
+        @Override
+        public void actionPerformed() {
+            player.trade();
+        }
     }
 
     public static class enchant extends Action{

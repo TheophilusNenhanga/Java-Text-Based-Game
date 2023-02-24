@@ -4,9 +4,9 @@ import SuperClasses.Items;
 
 /**Base class for all items used to restore health*/
 public class Consumable implements Items {
-    int value;
-    String name;
-    int healingValue;
+    public int value;
+    public String name;
+    public int healingValue;
     boolean sellable;
 
     public Consumable() {

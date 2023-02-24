@@ -5,6 +5,7 @@ import Player.Player;
 
 import java.util.Objects;
 import java.util.Random;
+import java.util.Scanner;
 
 public abstract class MapTile {
 
@@ -14,6 +15,8 @@ public abstract class MapTile {
     public Enemy enemy;
 
     public static Random random = new Random();
+
+    public static Scanner scanner = new Scanner(System.in);
 
     public MapTile(int x, int y){
         this.x = x;
