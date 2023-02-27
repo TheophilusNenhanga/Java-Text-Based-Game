@@ -1,13 +1,14 @@
 package World.FindTiles;
 
 import Player.Player;
+
 public class FindCrystalTile extends FindTile {
     boolean crystalClaimed;
     int crystals;
     public FindCrystalTile(int x, int y) {
         super(x, y);
         this.crystalClaimed = false;
-        this.crystals = this.random.nextInt(7, 15);
+        this.crystals = random.nextInt(7, 15);
     }
 
     @Override

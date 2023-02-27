@@ -5,7 +5,6 @@ import Player.Player;
 
 import java.util.Objects;
 import java.util.Random;
-import java.util.Scanner;
 
 public abstract class MapTile {
 

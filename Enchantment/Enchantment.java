@@ -20,11 +20,11 @@ public class Enchantment implements Items {
     public float damageMultiplier(){
         float damage_multiplier;
         switch (this.level){
-            case 0 -> {damage_multiplier=1f;}
-            case 1 -> {damage_multiplier=1.25f;}
-            case 2 -> {damage_multiplier=1.5f;}
-            case 3 -> {damage_multiplier=2f;}
-            default -> {damage_multiplier=1.1f;}
+            case 0 -> damage_multiplier=1f;
+            case 1 -> damage_multiplier=1.25f;
+            case 2 -> damage_multiplier=1.5f;
+            case 3 -> damage_multiplier=2f;
+            default -> damage_multiplier=1.1f;
         }
         return damage_multiplier;
     }

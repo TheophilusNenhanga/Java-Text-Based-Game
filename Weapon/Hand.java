@@ -11,7 +11,7 @@ public class Hand extends Weapon{
         this.damage = 1;
         this.value = 999999;
         this.sellable = false;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
     private void addAttacks(){

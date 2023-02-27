@@ -9,8 +9,8 @@ public class SkeletalWarrior extends Enemy{
                 this.damage = 12;
             }
             case 2 -> {
-                this.hp = 15;
-                this.damage = 15;
+                this.hp = 14;
+                this.damage = 14;
             }
             case 3 -> {
                 this.hp = 20;

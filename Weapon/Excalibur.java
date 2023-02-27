@@ -11,7 +11,7 @@ public class Excalibur extends Weapon{
         this.damage = 35;
         this.value = 300;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
 

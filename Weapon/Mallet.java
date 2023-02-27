@@ -11,7 +11,7 @@ public class Mallet extends Weapon{
         this.damage = 10;
         this.value = 80;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
     private void addAttacks(){

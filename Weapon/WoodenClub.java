@@ -11,7 +11,7 @@ public class WoodenClub extends Weapon{
         this.damage = 4;
         this.value = 22;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
     private void addAttacks(){

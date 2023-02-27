@@ -1,6 +1,5 @@
 package World.NPCTiles;
 
-import Defensive.Defensive;
 import NPC.NonPlayerCharacter;
 import NPC.WeaponSmith;
 import Player.Player;

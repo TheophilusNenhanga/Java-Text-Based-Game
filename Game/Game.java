@@ -149,10 +149,7 @@ public class Game {
     }
 
     public void chooseAction(MapTile room, Player player){
-        // TODO: Add implementation from python source (This is the reason nothing happens on the starting tile.)
-        Action action = null;
-
-        ArrayList<Action> availableActions = new ArrayList<>();
+        ArrayList<Action> availableActions;
         availableActions = this.getAvailableActions(room, player);
         String actionInput = scanner.nextLine();
         for (Action act: availableActions){
@@ -185,7 +182,7 @@ public class Game {
     }
 
     public ArrayList<Action> getAvailableActions(MapTile room, Player player){
-        ArrayList<Action> actions = new ArrayList<Action>();
+        ArrayList<Action> actions = new ArrayList<>();
         System.out.println("\nChoose an Action:");
         if (player != null){
             Action action = new Action.details(player);
@@ -194,6 +191,12 @@ public class Game {
         }
         if (player.inventory != null){
             Action action = new Action.inventory(player);
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        if (player.hp < 100){
+            Action action = new Action.heal(player);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }

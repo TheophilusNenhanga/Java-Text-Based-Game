@@ -11,7 +11,7 @@ public class MetalClub extends Weapon{
         this.damage = 9;
         this.value = 50;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
     private void addAttacks(){

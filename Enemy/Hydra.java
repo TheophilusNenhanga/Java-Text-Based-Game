@@ -23,8 +23,8 @@ public class Hydra extends Enemy{
     public void deadText() {
         System.out.printf("""
                 The sound of crashing waves intensifies.
-                The %s is dead, and you have three heads to prove it. 
-                You must be getting close. 
+                The %s is dead, and you have three heads to prove it.
+                You must be getting close.
                 """, this.name);
     }
 }

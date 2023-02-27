@@ -11,7 +11,7 @@ public class RustySword extends Weapon{
         this.damage = 8;
         this.value = 35;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
     private void addAttacks(){

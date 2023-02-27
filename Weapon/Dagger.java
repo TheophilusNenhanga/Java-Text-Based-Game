@@ -11,7 +11,7 @@ public class Dagger extends Weapon {
         this.damage = 3;
         this.value = 20;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
     private void addAttacks(){

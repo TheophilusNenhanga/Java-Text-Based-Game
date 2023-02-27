@@ -1,20 +1,17 @@
 package Player;
 
+import Consumable.Consumable;
 import Consumable.CrustyBread;
 import Defensive.Defensive;
 import Enemy.Enemy;
 import SuperClasses.Items;
-import Weapon.Hand;
-import Weapon.RustySword;
-import Weapon.Weapon;
+import Weapon.*;
 import World.EnemyTiles.EnemyTile;
-import World.NPCTiles.ArmourSmithTile;
-import World.NPCTiles.EnchanterTile;
-import World.NPCTiles.TraderTile;
-import World.NPCTiles.WeaponSmithTile;
+import World.NPCTiles.*;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 import static Game.Game.world;
 
@@ -33,6 +30,7 @@ public class Player {
     public int score;
     public int boss;
     public static Random random = new Random();
+    private static final Scanner scanner = new Scanner(System.in);
 
     public Player(int x, int y) {
         this.victory = false;
@@ -50,10 +48,6 @@ public class Player {
         this.inventory.add(new Hand());
         this.inventory.add(new CrustyBread());
         this.inventory.add(new RustySword());
-    }
-
-    private void fight(Weapon bestWeapon, Enemy enemy){
-
     }
 
     public void attack(EnemyTile room) {
@@ -113,14 +107,13 @@ public class Player {
 
     public Weapon mostDamage(){
         Weapon bestWeapon = new Hand();
-        for (int i = 0; i<this.inventory.size(); i++){
-            try{
-                Weapon currentWeapon = (Weapon) this.inventory.get(i);
-                if (currentWeapon.damage > bestWeapon.damage){
+        for (Items items : this.inventory) {
+            try {
+                Weapon currentWeapon = (Weapon) items;
+                if (currentWeapon.damage > bestWeapon.damage) {
                     bestWeapon = currentWeapon;
                 }
-            }catch (RuntimeException e){
-                ;
+            } catch (RuntimeException ignored) {
             }
         }
         return bestWeapon;
@@ -131,7 +124,37 @@ public class Player {
     }
 
     public void heal(){
-
+        ArrayList<Consumable> consumables = new ArrayList<>();
+        for (Items item : this.inventory) {
+            if (item instanceof Consumable){
+                consumables.add((Consumable) item);
+            }
+        }
+        if (consumables.size() == 0){
+            System.out.println("---You do not have any items to heal you---\n");
+            return;
+        }
+        System.out.println("Choose a healing item: ");
+        for (int i = 0; i < consumables.size(); i++){
+            System.out.printf("%d. %s\n", i+1, consumables.get(i));
+        }
+        while (!(this.hp >= 100)) {
+            String userInput = scanner.nextLine();
+            if (userInput.equalsIgnoreCase("q")) {
+                return;
+            } else {
+                try {
+                    int userChoice = Integer.parseInt(userInput);
+                    Consumable toEat = consumables.get(userChoice-1);
+                    this.inventory.remove(toEat);
+                    this.hp = Math.round(Math.min(100, this.hp + toEat.healingValue));
+                    System.out.println("Current HP: " + this.hp + "\n");
+                    return;
+                } catch (RuntimeException e) {
+                    System.out.println("---Invalid Choice Error: Failed to heal---");
+                }
+            }
+        }
     }
 
     public void trade(){

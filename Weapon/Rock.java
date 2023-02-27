@@ -11,7 +11,7 @@ public class Rock extends Weapon{
         this.damage = 1;
         this.value = 5;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
     private void addAttacks(){

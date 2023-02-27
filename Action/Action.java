@@ -56,7 +56,7 @@ public class Action {
         public talk(Player player){
             super(player);
             this.name = "Talk";
-            this.hotkey = "t";
+            this.hotkey = "tk";
         }
     }
 
@@ -173,5 +173,15 @@ public class Action {
         }
         @Override
         public void actionPerformed() { player.moveWest(); }
+    }
+
+    public static class heal extends Action{
+        public heal(Player player){
+            super(player);
+            this.name = "Heal";
+            this.hotkey = "h";
+        }
+        @Override
+        public void actionPerformed() { player.heal(); }
     }
 }

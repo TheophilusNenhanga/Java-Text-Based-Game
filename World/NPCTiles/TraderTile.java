@@ -1,7 +1,6 @@
 package World.NPCTiles;
 
 import Consumable.Consumable;
-import Defensive.Defensive;
 import NPC.NonPlayerCharacter;
 import NPC.Trader;
 import Player.Player;

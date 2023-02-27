@@ -11,7 +11,7 @@ public class LightSaber extends Weapon{
         this.damage = 18;
         this.value = 85;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
     private void addAttacks(){

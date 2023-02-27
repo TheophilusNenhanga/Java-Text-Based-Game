@@ -11,7 +11,7 @@ public class BowAndArrow extends Weapon{
         this.damage = 12;
         this.value = 55;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
 
     }

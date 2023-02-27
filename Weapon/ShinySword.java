@@ -11,7 +11,7 @@ public class ShinySword extends Weapon{
         this.damage = 14;
         this.value = 70;
         this.sellable = true;
-        this.attacks = new HashMap<Integer, Attack>();
+        this.attacks = new HashMap<>();
         this.addAttacks();
     }
     private void addAttacks(){
