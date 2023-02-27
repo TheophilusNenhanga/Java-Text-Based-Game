@@ -73,11 +73,43 @@ public class Action {
         }
     }
 
+    public static class tradeArmour extends Action{
+        public tradeArmour(Player player){
+            super(player);
+            this.name = "Trade";
+            this.hotkey = "t";
+        }
+
+        @Override
+        public void actionPerformed() {
+            player.tradeArmour();
+        }
+    }
+
+
+    public static class tradeWeapon extends Action{
+        public tradeWeapon(Player player){
+            super(player);
+            this.name = "Trade";
+            this.hotkey = "t";
+        }
+
+        @Override
+        public void actionPerformed() {
+            player.tradeWeapon();
+        }
+    }
+
     public static class enchant extends Action{
         public enchant(Player player){
             super(player);
             this.name = "Enchant";
             this.hotkey = "en";
+        }
+
+        @Override
+        public void actionPerformed() {
+            player.enchant();
         }
     }
 

@@ -16,8 +16,6 @@ public abstract class MapTile {
 
     public static Random random = new Random();
 
-    public static Scanner scanner = new Scanner(System.in);
-
     public MapTile(int x, int y){
         this.x = x;
         this.y = y;

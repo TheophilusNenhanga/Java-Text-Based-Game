@@ -6,7 +6,6 @@ import SuperClasses.Items;
 import java.util.ArrayList;
 
 public class Trader extends NonPlayerCharacter{
-    public ArrayList<Consumable> inventory = new ArrayList<>();
     public Trader(){
         super();
         this.name =  "Trader";

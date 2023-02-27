@@ -55,8 +55,6 @@ public class World {
     }
 
     public boolean isWorldValid(String world) {
-        /*int allPipeCount = 0;*/
-
         if (!world.contains("|ST |")) {
             return false;
         }
@@ -134,7 +132,6 @@ public class World {
                     }
                     case "VT " -> row.add(new VictoryTile(x, y));
                 }
-
             }
             this.worldMap.add(row);
         }

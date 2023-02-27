@@ -25,9 +25,8 @@ public class Weapon implements Items {
 
     @Override
     public String toString() {
-        return this.name + ",\t\t" + "(Damage: " + this.damage + ")";
+        return this.name + "\t\t" + "(Damage: " + this.damage + ")";
     }
 
 }
 //TODO: Fix implementation of addAttacks() in weapon classes.
-//TODO: Add documentation.

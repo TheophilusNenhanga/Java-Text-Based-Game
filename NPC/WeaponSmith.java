@@ -6,7 +6,6 @@ import Weapon.Weapon;
 import java.util.ArrayList;
 
 public class WeaponSmith extends NonPlayerCharacter{
-    ArrayList<Items> inventory = new ArrayList<>();
     public WeaponSmith(){
         super();
         this.name =  "Weapon Smith";

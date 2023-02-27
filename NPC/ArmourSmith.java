@@ -7,7 +7,6 @@ import SuperClasses.Items;
 import java.util.ArrayList;
 
 public class ArmourSmith extends NonPlayerCharacter{
-    ArrayList<Items> inventory = new ArrayList<>();
     public ArmourSmith(){
         super();
         this.name =  "Armour Smith";

@@ -8,7 +8,10 @@ import Weapon.Hand;
 import Weapon.RustySword;
 import Weapon.Weapon;
 import World.EnemyTiles.EnemyTile;
+import World.NPCTiles.ArmourSmithTile;
+import World.NPCTiles.EnchanterTile;
 import World.NPCTiles.TraderTile;
+import World.NPCTiles.WeaponSmithTile;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -133,7 +136,22 @@ public class Player {
 
     public void trade(){
         TraderTile room = (TraderTile) world.getTile(this.x, this.y);
-        room.checkIfTrade(this);
+        room.checkIfTrade(this, room.trader);
+    }
+
+    public void tradeArmour(){
+        ArmourSmithTile room = (ArmourSmithTile) world.getTile(this.x, this.y);
+        room.checkIfTrade(this, room.trader);
+    }
+
+    public void tradeWeapon(){
+        WeaponSmithTile room = (WeaponSmithTile) world.getTile(this.x, this.y);
+        room.checkIfTrade(this, room.trader);
+    }
+
+    public void enchant(){
+        EnchanterTile room = (EnchanterTile) world.getTile(this.x, this.y);
+        room.checkIfTrade(this, room.enchanter);
     }
 
     public boolean hasName(){

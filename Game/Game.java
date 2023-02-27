@@ -6,7 +6,10 @@ import Files.FileWrite;
 import Player.Player;
 import World.*;
 import World.EnemyTiles.EnemyTile;
+import World.NPCTiles.ArmourSmithTile;
+import World.NPCTiles.EnchanterTile;
 import World.NPCTiles.TraderTile;
+import World.NPCTiles.WeaponSmithTile;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -227,6 +230,24 @@ public class Game {
 
         if (world.getTile(room.x, room.y) instanceof TraderTile){
             Action action = new Action.trade(player);
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        if (world.getTile(room.x, room.y) instanceof WeaponSmithTile){
+            Action action = new Action.tradeWeapon(player);
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        if (world.getTile(room.x, room.y) instanceof ArmourSmithTile){
+            Action action = new Action.tradeArmour(player);
+            actions.add(action);
+            System.out.println(action.hotkey + ": " + action.name);
+        }
+
+        if (world.getTile(room.x, room.y) instanceof EnchanterTile){
+            Action action = new Action.enchant(player);
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }

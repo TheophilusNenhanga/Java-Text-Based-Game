@@ -3,9 +3,9 @@ package Defensive;
 import SuperClasses.Items;
 
 public class Defensive implements Items {
-    int value;
-    String name;
-    String description;
+    public int value;
+    public String name;
+    public String description;
     public float defence;
     Boolean sellable;
 

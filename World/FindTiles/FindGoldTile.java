@@ -8,7 +8,7 @@ public class FindGoldTile extends FindTile {
     public FindGoldTile(int x, int y) {
         super(x, y);
         this.goldClaimed = false;
-        this.gold = this.random.nextInt(100, 200);
+        this.gold = random.nextInt(50, 90);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class FindGoldTile extends FindTile {
         if (!this.goldClaimed){
             this.goldClaimed = true;
             player.crystals += this.gold;
-            System.out.println("+" + this.gold + "gold added.");
+            System.out.println("+" + this.gold + " gold added.");
         }
     }
 }

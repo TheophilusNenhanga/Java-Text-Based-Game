@@ -1,11 +1,13 @@
 package Enchantment;
 
-public class Enchantment {
-    String name;
+import SuperClasses.Items;
+
+public class Enchantment implements Items {
+    public String name;
     short level;
     String[] typeEffect;
     String description;
-    short value;
+    public short value;
 
     public Enchantment() {
         this.name = "Enchantment";

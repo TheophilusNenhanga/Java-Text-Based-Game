@@ -14,6 +14,8 @@ public class NonPlayerCharacter {
     public String name;
     public int gold;
     public static final Random random = new Random();
+    public ArrayList<Items> inventory = new ArrayList<>();
+
     public NonPlayerCharacter(){
         this.allItems.add(new SnakeApple());
         this.allItems.add(new RottenFlesh());

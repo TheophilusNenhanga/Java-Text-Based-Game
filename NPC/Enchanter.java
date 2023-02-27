@@ -5,7 +5,6 @@ import Enchantment.*;
 import java.util.ArrayList;
 
 public class Enchanter extends NonPlayerCharacter{
-    ArrayList<Enchantment> inventory;
     public Enchanter(){
         this.name = "Enchanter";
         this.inventory.add(new Hydration());
