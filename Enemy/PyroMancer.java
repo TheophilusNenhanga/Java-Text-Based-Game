@@ -4,7 +4,7 @@ public class PyroMancer extends Enemy{
     public PyroMancer(){
         this.name = "Pyro-Mancer";
         this.hp = 75;
-        this.damage = 26;
+        this.damage = 23;
         this.defence = 1;
         this.type = "fire";
         this.score = 15;

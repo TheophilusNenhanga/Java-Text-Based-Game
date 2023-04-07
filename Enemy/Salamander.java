@@ -4,7 +4,7 @@ public class Salamander extends Enemy{
     public Salamander(){
         this.name = "Salamander";
         this.hp = 10;
-        this.damage = 25;
+        this.damage = 22;
         this.defence = 2;
         this.type = "fire";
         this.score = 7;

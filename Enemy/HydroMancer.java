@@ -4,7 +4,7 @@ public class HydroMancer extends Enemy{
     public HydroMancer(){
         this.name = "Hydro-Mancer";
         this.hp = 65;
-        this.damage = 22;
+        this.damage = 19;
         this.defence = 0;
         this.type = "water";
         this.score = 15;

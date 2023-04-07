@@ -2,9 +2,9 @@ package Enemy;
 
 public class WaterNymph extends Enemy{
     public WaterNymph(){
-        this.name = "WaterNymph";
+        this.name = "Water Nymph";
         this.hp = 20;
-        this.damage = 10;
+        this.damage = 8;
         this.defence = 2;
         this.type = "water";
         this.score = 7;

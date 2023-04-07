@@ -20,9 +20,8 @@ public class ArmourSmithTile extends MapTile implements TradeTiles {
     public void introText() {
         System.out.println(
                 """
-                        A frail not-quite human, not-quite creature squats in the corner.
-                        Clinking his gold coins together. He looks ready to trade.
-                        Trade only if you dare.
+                                For all your armour needs.
+                        The armour smith is here to quench your greed.
                         """
         );
     }

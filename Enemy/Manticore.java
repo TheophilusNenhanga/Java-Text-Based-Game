@@ -4,7 +4,7 @@ public class Manticore extends Enemy{
     public Manticore(){
         this.name = "Manticore";
         this.hp = 25;
-        this.damage = 22;
+        this.damage = 19;
         this.defence = 2;
         this.type = "air";
         this.score = 7;

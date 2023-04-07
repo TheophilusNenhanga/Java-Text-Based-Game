@@ -4,7 +4,7 @@ public class HellHound extends Enemy{
     public HellHound(){
         this.name = "Hell Hound";
         this.hp = 14;
-        this.damage = 18;
+        this.damage = 15;
         this.defence = 2;
         this.type = "fire";
         this.score = 7;

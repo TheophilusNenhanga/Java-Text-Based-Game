@@ -4,7 +4,7 @@ public class SeaSerpent extends Enemy{
     public SeaSerpent(){
         this.name = "SeaSerpent";
         this.hp = 25;
-        this.damage = 15;
+        this.damage = 12;
         this.defence = 2;
         this.type = "water";
         this.score = 7;

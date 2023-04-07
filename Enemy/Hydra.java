@@ -4,7 +4,7 @@ public class Hydra extends Enemy{
     public Hydra(){
         this.name = "Hydra";
         this.hp = 25;
-        this.damage = 12;
+        this.damage = 10;
         this.defence = 2;
         this.type = "water";
         this.score = 7;

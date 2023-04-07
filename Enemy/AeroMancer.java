@@ -4,7 +4,7 @@ public class AeroMancer extends Enemy{
     public AeroMancer(){
         this.name = "Aero-Mancer";
         this.hp = 80;
-        this.damage = 35;
+        this.damage = 22;
         this.defence = 2;
         this.type = "air";
         this.score = 15;

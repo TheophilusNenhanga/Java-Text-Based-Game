@@ -6,19 +6,19 @@ public class Lamia extends Enemy{
         switch (level){
             case 1 -> {
                 this.hp = 30;
-                this.damage = 16;
+                this.damage = 12;
             }
             case 2 -> {
                 this.hp = 35;
-                this.damage = 18;
+                this.damage = 15;
             }
             case 3 -> {
                 this.hp = 40;
-                this.damage = 20;
+                this.damage = 18;
             }
             case 4 -> {
                 this.hp = 45;
-                this.damage = 22;
+                this.damage = 21;
             }
             default -> {
                 this.hp = 25;

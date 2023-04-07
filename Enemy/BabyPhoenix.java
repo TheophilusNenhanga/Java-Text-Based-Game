@@ -4,7 +4,7 @@ public class BabyPhoenix extends Enemy{
     public BabyPhoenix(){
         this.name = "BabyPhoenix";
         this.hp = 8;
-        this.damage = 22;
+        this.damage = 14;
         this.defence = 2;
         this.type = "fire";
         this.score = 7;

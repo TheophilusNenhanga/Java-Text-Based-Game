@@ -4,7 +4,7 @@ public class Harpy extends Enemy{
     public Harpy(){
         this.name = "Harpy";
         this.hp = 22;
-        this.damage = 15;
+        this.damage = 12;
         this.defence = 0;
         this.type = "air";
         this.score = 7;

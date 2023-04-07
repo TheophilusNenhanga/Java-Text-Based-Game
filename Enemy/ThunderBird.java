@@ -4,7 +4,7 @@ public class ThunderBird extends Enemy{
     public ThunderBird(){
         this.name = "Thunder Bird";
         this.hp = 25;
-        this.damage = 20;
+        this.damage = 17;
         this.defence = 2;
         this.type = "air";
         this.score = 7;

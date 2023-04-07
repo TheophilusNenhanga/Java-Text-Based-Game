@@ -4,7 +4,7 @@ public class Golem extends Enemy{
     public Golem(){
         this.name = "Golem";
         this.hp = 20;
-        this.damage = 8;
+        this.damage = 6;
         this.defence = 0;
         this.type = "rock";
         this.score = 7;

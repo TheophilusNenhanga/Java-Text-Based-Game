@@ -4,7 +4,7 @@ public class GeoMancer extends Enemy{
     public GeoMancer(){
         this.name = "Geo-Mancer";
         this.hp = 50;
-        this.damage = 16;
+        this.damage = 14;
         this.defence = 0;
         this.type = "rock";
         this.score = 15;

@@ -6,15 +6,15 @@ public class GiantSpider extends Enemy{
         switch (level){
             case 1 -> {
                 this.hp = 10;
-                this.damage = 8;
+                this.damage = 6;
             }
             case 2 -> {
                 this.hp = 12;
-                this.damage = 12;
+                this.damage = 10;
             }
             case 3 -> {
                 this.hp = 20;
-                this.damage = 15;
+                this.damage = 14;
             }
             case 4 -> {
                 this.hp = 25;

@@ -4,7 +4,7 @@ public class Ogre extends Enemy{
     public Ogre(){
         this.name = "Ogre";
         this.hp = 10;
-        this.damage = 9;
+        this.damage = 8;
         this.defence = 0;
         this.type = "rock";
         this.score = 7;

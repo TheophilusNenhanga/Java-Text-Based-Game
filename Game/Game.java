@@ -3,6 +3,8 @@ package Game;
 import Action.Action;
 import Files.FileRead;
 import Files.FileWrite;
+import Files.MakeFiles;
+import Files.MapLoader;
 import Player.Player;
 import World.*;
 import World.EnemyTiles.EnemyTile;
@@ -21,7 +23,43 @@ public class Game {
 
     public Game(){
         this.scanner = new Scanner(System.in);
-        world = new World();
+    }
+
+    public static World initializeWorld(int mapIndex, MapLoader mapLoader){
+        return new World(mapIndex, mapLoader);
+    }
+
+    private void chooseMap(){
+        MapLoader mapLoader = new MapLoader();
+        int numberOfMaps = mapLoader.mapNumber();
+
+        int chosenInteger = -1;
+        int j = 0;
+        while (j < 5) {
+            j += 1;
+            System.out.println("---Choose a World---\n");
+            for (int i = 0; i < numberOfMaps; i++) {
+                System.out.printf("%d. %s\n", i+1, mapLoader.mapNames.get(i));
+            }
+
+            String chosenString = this.scanner.nextLine();
+            try {
+                chosenInteger = Integer.parseInt(chosenString);
+                if (numberOfMaps < chosenInteger){
+                    throw new RuntimeException();
+                }
+                break;
+            }catch (RuntimeException ignored){
+                System.out.println("Incorrect value entered");
+            }
+
+        }
+        if (chosenInteger == -1){
+            world = initializeWorld(1, mapLoader);
+        }else{
+            world = initializeWorld(chosenInteger, mapLoader);
+        }
+
     }
 
     public void playerStory(){
@@ -85,6 +123,10 @@ public class Game {
     }
 
     public void startScreen(){
+        MakeFiles.createLeaderboard();
+
+
+
         System.out.println("---------CAVER---------");
         System.out.println("Welcome to the game.");
         System.out.println("""
@@ -124,6 +166,8 @@ public class Game {
 
     public void playGame() {
         System.out.println("-----CAVER-----\n");
+
+        this.chooseMap();
 
         world.parseWorld();
         int[] startLocation = world.startLocation;
@@ -170,9 +214,9 @@ public class Game {
             player.name = name;
         }
         try {
-            FileWrite leaderboardWriter = new FileWrite("Files/leaders.txt");
-            leaderboardWriter.fileWrite(player.name + "-" + player.score);
-            leaderboardWriter.fileClose();
+            // FileWrite leaderboardWriter = new FileWrite("Files/leaders.txt");
+            // leaderboardWriter.fileWrite(player.name + "-" + player.score);
+            // leaderboardWriter.fileClose();
         } catch (RuntimeException e){
             System.out.println("Error: Failed to write to file");
         }
@@ -189,6 +233,7 @@ public class Game {
             actions.add(action);
             System.out.println(action.hotkey + ": " + action.name);
         }
+
         if (player.inventory != null){
             Action action = new Action.inventory(player);
             actions.add(action);

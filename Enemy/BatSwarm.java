@@ -6,19 +6,19 @@ public class BatSwarm extends Enemy{
         switch (level){
             case 1 -> {
                 this.hp = 15;
-                this.damage = 8;
+                this.damage = 6;
             }
             case 2 -> {
                 this.hp = 15;
-                this.damage = 10;
+                this.damage = 8;
             }
             case 3 -> {
                 this.hp = 20;
-                this.damage = 16;
+                this.damage = 10;
             }
             case 4 -> {
                 this.hp = 30;
-                this.damage = 20;
+                this.damage = 12;
             }
             default -> {
                 this.hp = 20;
