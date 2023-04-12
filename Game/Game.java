@@ -2,7 +2,6 @@ package Game;
 
 import Action.Action;
 import Files.FileRead;
-import Files.FileWrite;
 import Files.MakeFiles;
 import Files.MapLoader;
 import Player.Player;
@@ -64,23 +63,25 @@ public class Game {
 
     public void playerStory(){
         FileRead fileRead = new FileRead("Files/playerStory.txt");
-        fileRead.printContents();
+        if (!fileRead.isEmpty()){
+            fileRead.printContents();
+        }else{
+            System.out.println("Error: Failed to print player story");
+        }
         System.out.println("\nWhat would you like to do\n");
     }
 
     public void leaderboard(){
-        FileRead fileRead = new FileRead("Files/leaderboard.dat");
-        if (!fileRead.isEmpty()){
-            fileRead.printContents();
-            System.out.println("\nWhat would you like to do\n");
-        }
-        System.out.println("\nThe leaderboard is empty --- Play the game first");
-        System.out.println("\nWhat would you like to do\n");
+        // TODO: Read from properties file 2023/04/12
     }
 
     public void credits(){
         FileRead fileRead = new FileRead("Files/credits.txt");
-        fileRead.printContents();
+        if (!fileRead.isEmpty()) {
+            fileRead.printContents();
+        }else{
+            System.out.println("Error: Failed to print credits.");
+        }
         System.out.println("\nWhat would you like to do\n");
     }
 
@@ -124,8 +125,6 @@ public class Game {
 
     public void startScreen(){
         MakeFiles.createLeaderboard();
-
-
 
         System.out.println("---------CAVER---------");
         System.out.println("Welcome to the game.");
@@ -214,9 +213,8 @@ public class Game {
             player.name = name;
         }
         try {
-            // FileWrite leaderboardWriter = new FileWrite("Files/leaders.txt");
-            // leaderboardWriter.fileWrite(player.name + "-" + player.score);
-            // leaderboardWriter.fileClose();
+            // TODO: Write the player to the leaderboard properties file 2023/04/12
+            // TODO: Sort the players in the leaderboard by score 2023/04/12
         } catch (RuntimeException e){
             System.out.println("Error: Failed to write to file");
         }

@@ -1,5 +1,6 @@
 package Files;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -8,19 +9,36 @@ import java.util.Properties;
  * This class is used to create files when the game is first run.
  * */
 public class MakeFiles {
+    private static final String[] maps = new String[5];
 
-    public static void createLeaderboard(){
-        try{
-            Properties properties = new Properties();
-            FileOutputStream outputStream = new FileOutputStream("Files/leaderboard.properties");
-            properties.store(outputStream, "Game Leaderboard");
-            outputStream.close();
-        }catch (IOException e){
-            System.out.println("Error: Failed to make properties file.");
+    public static void createLeaderboard() {
+        File file = new File("Files/leaderboard.properties");
+        if (!file.exists()) {
+            try {
+                Properties properties = new Properties();
+                FileOutputStream outputStream = new FileOutputStream("Files/leaderboard.properties");
+                properties.store(outputStream, "Game Leaderboard");
+                outputStream.close();
+            } catch (IOException e) {
+                System.out.println("---Error: Failed to make properties file---");
+            }
         }
     }
 
-    public static void createMaps(){
-
+    public static void createMaps() {
+        File file = new File("Files/gameMaps.properties");
+        if (!file.exists()) {
+            try {
+                Properties properties = new Properties();
+                FileOutputStream outputStream = new FileOutputStream("Files/gameMaps.properties");
+                for (int i = 0; i < maps.length; i++) {
+                    properties.setProperty(String.valueOf(i), maps[i]);
+                }
+                properties.store(outputStream, "Game Maps");
+                outputStream.close();
+            } catch (IOException e) {
+                System.out.println("---Error: Failed to make maps file---");
+            }
+        }
     }
 }

@@ -8,6 +8,7 @@ public class StartTile extends MapTile {
     @Override
     public void introText() {
         System.out.println("""
+                
                 This is where your journey begins!
                 Will you be the one to save the village?
                 """);

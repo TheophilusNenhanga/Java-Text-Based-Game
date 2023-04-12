@@ -62,7 +62,7 @@ public class Player {
         double attackMultiplier = 1;
         Weapon bestWeapon = this.mostDamage();
         int damageDealt = (int) ((bestWeapon.damage * attackMultiplier) - (bestWeapon.damage * defenceMultiplier));
-        enemy.hp =  (int) (enemy.hp - damageDealt);
+        enemy.hp = enemy.hp - damageDealt;
         System.out.printf("You deal %d damage\n", damageDealt);
 
         if (!enemy.isAlive() && !room.completed){
@@ -76,7 +76,7 @@ public class Player {
                 System.out.printf("You receive +%d crystals\n\n", amount);
             }
         }else{
-            System.out.printf("The %s has %d health remaining\n\n", enemy.name, Math.round(enemy.hp));
+            System.out.printf("The %s has %d health remaining\n\n", enemy.name, enemy.hp);
         }
     }
 

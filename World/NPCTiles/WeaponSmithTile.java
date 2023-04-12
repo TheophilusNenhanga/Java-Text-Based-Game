@@ -28,6 +28,7 @@ public class WeaponSmithTile extends MapTile implements TradeTiles {
         for (int i = 0; i < seller.inventory.size(); i++){
             System.out.printf("%d. %s - %d Gold\n", i+1, ((Weapon) seller.inventory.get(i)).name, ((Weapon) seller.inventory.get(i)).value);
         }
+        System.out.printf("---You have %d Gold---\n", buyer.gold);
         while (true){
             String userInput = scanner.nextLine();
             if (userInput.equalsIgnoreCase("q")){
