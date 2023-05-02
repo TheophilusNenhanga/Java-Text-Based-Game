@@ -1,7 +1,7 @@
 package Files;
 
 
-import SuperClasses.Loaders;
+import SuperClasses.IO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 
-public class MapLoader implements Loaders {
+public class MapLoader implements IO {
 
     protected InputStream inputStream;
     protected Properties properties;
@@ -24,7 +24,7 @@ public class MapLoader implements Loaders {
         this.mapNames = new ArrayList<>();
         this.mapNumber = 0;
 
-        this.inputStream = getClass().getResourceAsStream("maps.properties");
+        this.inputStream = getClass().getResourceAsStream(mapsFileName);
         try{
             this.properties.load(this.inputStream);
         } catch (IOException e){

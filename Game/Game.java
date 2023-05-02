@@ -2,6 +2,7 @@ package Game;
 
 import Action.Action;
 import Files.FileRead;
+import Files.LeaderLoader;
 import Files.MakeFiles;
 import Files.MapLoader;
 import Player.Player;
@@ -73,6 +74,17 @@ public class Game {
 
     public void leaderboard(){
         // TODO: Read from properties file 2023/04/12
+        LeaderLoader leaderLoader = new LeaderLoader();
+        if (leaderLoader.isEmpty()){
+            System.out.println("""
+                    -----NOT A SINGLE SOUL HAS MADE IT TO THE LEADERBOARD-----
+                                    -----BE THE FIRST-----
+                    """);
+        }else {
+            for (int i = 0; i <= leaderLoader.getLeaderNumber(); i++) {
+                System.out.println(leaderLoader.getLeader(i));
+            }
+        }
     }
 
     public void credits(){
@@ -214,7 +226,10 @@ public class Game {
         }
         try {
             // TODO: Write the player to the leaderboard properties file 2023/04/12
-            // TODO: Sort the players in the leaderboard by score 2023/04/12
+
+            LeaderLoader leaderLoader = new LeaderLoader();
+            leaderLoader.addLeader(player.name, player.score);
+
         } catch (RuntimeException e){
             System.out.println("Error: Failed to write to file");
         }

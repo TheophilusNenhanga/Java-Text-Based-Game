@@ -12,11 +12,11 @@ public class MakeFiles {
     private static final String[] maps = new String[5];
 
     public static void createLeaderboard() {
-        File file = new File("Files/leaderboard.properties");
+        File file = new File("leaderboard.properties");
         if (!file.exists()) {
             try {
                 Properties properties = new Properties();
-                FileOutputStream outputStream = new FileOutputStream("Files/leaderboard.properties");
+                FileOutputStream outputStream = new FileOutputStream("leaderboard.properties");
                 properties.store(outputStream, "Game Leaderboard");
                 outputStream.close();
             } catch (IOException e) {
