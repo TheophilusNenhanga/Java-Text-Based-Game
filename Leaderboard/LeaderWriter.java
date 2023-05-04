@@ -1,4 +1,4 @@
-package Files;
+package Leaderboard;
 
 import SuperClasses.IO;
 
@@ -6,7 +6,6 @@ import java.io.*;
 import java.util.Properties;
 
 public class LeaderWriter implements IO {
-    // TODO: Implement this class to add players to the leaderboard. 2023/04/17
     public static boolean addLeader(String name, int score){
         String scoreString = String.valueOf(score);
 

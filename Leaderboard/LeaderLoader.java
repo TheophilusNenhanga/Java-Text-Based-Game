@@ -1,29 +1,24 @@
-package Files;
+package Leaderboard;
 
 import SuperClasses.IO;
 
-import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Properties;
+import java.util.*;
 
 public class LeaderLoader implements IO {
-    protected InputStream inputStream;
     protected Properties properties;
-    protected HashMap<Integer, String> leaders;
     protected int leaderNumber;
-    private static final String fileName = "leaderboard.properties";
+    private final ArrayList<Leader> gameLeaders;
 
     public LeaderLoader(){
-        this.inputStream = null;
         this.properties = new Properties();
-        this.leaders = new HashMap<>();
+        this.gameLeaders = new ArrayList<>();
         this.leaderNumber = 0;
 
-        this.inputStream = getClass().getResourceAsStream(leaderboardFilename);
         try{
-            this.properties.load(this.inputStream);
+            FileInputStream fileInputStream = new FileInputStream(leaderboardFilename);
+            this.properties.load(fileInputStream);
         }catch (IOException e){
             System.out.println("Error: failed to read properties");
         }
@@ -31,17 +26,22 @@ public class LeaderLoader implements IO {
     }
 
     private void getLeaders(){
-        this.properties.forEach((key, value) ->{
-            this.leaders.put((Integer) key, (String) value);
+        for (String key: properties.stringPropertyNames()){
+            String value = properties.getProperty(key);
+
+            Leader leader = new Leader(key, Integer.parseInt(value));
+            gameLeaders.add(leader);
+
             this.leaderNumber += 1;
-        });
+        }
     }
 
-    public String getLeader(int index){
-        if (index > this.leaderNumber){
+    public Leader getLeader(int index){
+        this.sortLeaders();
+        if (index >= this.leaderNumber){
             throw new RuntimeException("Error: There is no leader at that index");
         }else{
-            return (this.leaders.get(index));
+            return this.gameLeaders.get(index);
         }
     }
 
@@ -54,7 +54,13 @@ public class LeaderLoader implements IO {
     }
 
     public void sortLeaders(){
-        // TODO: Sort the players in the leaderboard by score 2023/04/12
+        // Sorts the leaders in reverse order
+        this.gameLeaders.sort(new Comparator<Leader>() {
+            @Override
+            public int compare(Leader o2, Leader o1) {
+                return Integer.compare(o1.getLeaderScore(), o2.getLeaderScore());
+            }
+        });
 
     }
 

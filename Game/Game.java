@@ -2,7 +2,7 @@ package Game;
 
 import Action.Action;
 import Files.FileRead;
-import Files.LeaderLoader;
+import Leaderboard.LeaderLoader;
 import Files.MakeFiles;
 import Files.MapLoader;
 import Player.Player;
@@ -69,7 +69,6 @@ public class Game {
         }else{
             System.out.println("Error: Failed to print player story");
         }
-        System.out.println("\nWhat would you like to do\n");
     }
 
     public void leaderboard(){
@@ -81,7 +80,7 @@ public class Game {
                                     -----BE THE FIRST-----
                     """);
         }else {
-            for (int i = 0; i <= leaderLoader.getLeaderNumber(); i++) {
+            for (int i = 0; i <= leaderLoader.getLeaderNumber()-1; i++) {
                 System.out.println(leaderLoader.getLeader(i));
             }
         }
@@ -94,7 +93,6 @@ public class Game {
         }else{
             System.out.println("Error: Failed to print credits.");
         }
-        System.out.println("\nWhat would you like to do\n");
     }
 
     public void exitGame(){
@@ -105,33 +103,36 @@ public class Game {
         System.out.println("---------CAVER---------\n");
         System.out.println("Thank you for playing the game.");
         System.out.println("""
-                1. Read the story
-                2. Leaderboard
-                3. Credits
-                4. Quit Game
+                1. Play Again
+                2. Read the story
+                3. Leaderboard
+                4. Credits
+                5. Quit Game
                 """);
 
         while (true){
             String choice = "";
             System.out.println("\nWhat would you like to do");
             // TODO: Add error checking for input types.
-            try{
-                choice = this.scanner.nextLine();
-            }catch (InputMismatchException e){
-                System.out.println("Incorrect input type");
-                // exitScreen();
-            }
+            choiceMenu(choice);
+        }
+    }
 
-            switch (choice){
-                case "1" -> {
-                    this.playerStory();
-                    exitScreen();
-                }
-                case "2" -> this.leaderboard();
-                case "3" -> this.credits();
-                case "4" -> this.exitGame();
-                default -> System.out.println("Incorrect Input");
-            }
+    private void choiceMenu(String choice) {
+        try{
+            choice = this.scanner.nextLine();
+        }catch (InputMismatchException e){
+            System.out.println("Incorrect input type");
+            // exitScreen();
+        }
+
+        switch (choice){
+            case "1" -> this.playGame();
+            case "2" -> this.playerStory();
+            case "3" -> this.leaderboard();
+            case "4" -> this.credits();
+            case "5" -> this.exitGame();
+            default -> System.out.println("Incorrect Input");
         }
     }
 
@@ -157,21 +158,8 @@ public class Game {
 
         while (true){
             String choice = "";
-            try {
-                choice = this.scanner.nextLine();
-            }catch (InputMismatchException e){
-                System.out.println("Incorrect input type");
-            }
-
-            switch (choice){
-                case "1" -> this.playGame();
-                case "2" -> this.playerStory();
-                case "3" -> this.leaderboard();
-                case "4" -> this.credits();
-                case "5" -> this.exitGame();
-                default -> System.out.println("Incorrect Input");
-            }
-
+            choiceMenu(choice);
+            System.out.println("\nWhat would you like to do?\n");
         }
     }
 
@@ -225,8 +213,6 @@ public class Game {
             player.name = name;
         }
         try {
-            // TODO: Write the player to the leaderboard properties file 2023/04/12
-
             LeaderLoader leaderLoader = new LeaderLoader();
             leaderLoader.addLeader(player.name, player.score);
 
