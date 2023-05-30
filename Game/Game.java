@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * The main Game class.
+ */
 public class Game {
     Scanner scanner;
     public static World world;
@@ -25,21 +28,32 @@ public class Game {
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Sets up the game world map
+     * @param mapIndex the index of the map to be loaded
+     * @param mapLoader The loader that loads the map
+     * @return the created world map
+     */
     public static World initializeWorld(int mapIndex, MapLoader mapLoader){
         return new World(mapIndex, mapLoader);
     }
 
+    /**
+     * Prompts the user to choose which map to play on.
+     */
     private void chooseMap(){
         MapLoader mapLoader = new MapLoader();
         int numberOfMaps = mapLoader.mapNumber();
 
         int chosenInteger = -1;
         int j = 0;
+        String mapName = "EMPTY MAP";
         while (j < 5) {
             j += 1;
             System.out.println("---Choose a World---\n");
             for (int i = 0; i < numberOfMaps; i++) {
-                System.out.printf("%d. %s\n", i+1, mapLoader.mapNames.get(i));
+                mapName = mapLoader.mapNames.get(i);
+                System.out.printf("%d. %s\n", i+1, mapName);
             }
 
             String chosenString = this.scanner.nextLine();
@@ -52,16 +66,18 @@ public class Game {
             }catch (RuntimeException ignored){
                 System.out.println("Incorrect value entered");
             }
-
         }
         if (chosenInteger == -1){
             world = initializeWorld(1, mapLoader);
         }else{
             world = initializeWorld(chosenInteger, mapLoader);
         }
-
+        world.chosenMap = mapName;
     }
 
+    /**
+     * Prints out the game story to the player.
+     */
     public void playerStory(){
         FileRead fileRead = new FileRead("Files/playerStory.txt");
         if (!fileRead.isEmpty()){
@@ -71,6 +87,9 @@ public class Game {
         }
     }
 
+    /**
+     * Prints the game leaderboard
+     */
     public void leaderboard(){
         // TODO: Read from properties file 2023/04/12
         LeaderLoader leaderLoader = new LeaderLoader();
@@ -86,6 +105,9 @@ public class Game {
         }
     }
 
+    /**
+     * Prints the game credits
+     */
     public void credits(){
         FileRead fileRead = new FileRead("Files/credits.txt");
         if (!fileRead.isEmpty()) {
@@ -95,6 +117,9 @@ public class Game {
         }
     }
 
+    /**
+     * Exits the game.
+     */
     public void exitGame(){
         System.out.println("\nGoodbye\n");
         System.exit(0);
@@ -118,12 +143,15 @@ public class Game {
         }
     }
 
+    /**
+     * Allows user to choose an action
+     * @param choice The choice that the user has made
+     */
     private void choiceMenu(String choice) {
         try{
             choice = this.scanner.nextLine();
         }catch (InputMismatchException e){
             System.out.println("Incorrect input type");
-            // exitScreen();
         }
 
         switch (choice){
@@ -136,6 +164,9 @@ public class Game {
         }
     }
 
+    /**
+     * The start game screen
+     */
     public void startScreen(){
         MakeFiles.createLeaderboard();
 
@@ -163,6 +194,9 @@ public class Game {
         }
     }
 
+    /**
+     * This method plays the game.
+     */
     public void playGame() {
         System.out.println("-----CAVER-----\n");
 
@@ -191,6 +225,11 @@ public class Game {
         }
     }
 
+    /**
+     * This method allows the user to choose an action depending on their current room
+     * @param room the room that the player is in
+     * @param player the current player of the game
+     */
     public void chooseAction(MapTile room, Player player){
         ArrayList<Action> availableActions;
         availableActions = this.getAvailableActions(room, player);
@@ -203,6 +242,10 @@ public class Game {
     }
 
 
+    /**
+     * This method ends the game once the game is completed or the player has died
+     * @param player The current player of the game
+     */
     public void end(Player player){
         if (!player.hasName()) {
             System.out.println("Enter your name: \n");
@@ -224,6 +267,12 @@ public class Game {
         exitScreen();
     }
 
+    /**
+     * gets the actions available to the player based on the room that they are in.
+     * @param room the room that the player is in
+     * @param player the current player of the game
+     * @return The list of available actions
+     */
     public ArrayList<Action> getAvailableActions(MapTile room, Player player){
         ArrayList<Action> actions = new ArrayList<>();
         System.out.println("\nChoose an Action:");

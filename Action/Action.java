@@ -4,7 +4,7 @@ import Player.Player;
 import World.EnemyTiles.EnemyTile;
 import World.MapTile;
 
-public class Action {
+public abstract class Action {
 
     public String name;
     public String hotkey;
@@ -14,9 +14,17 @@ public class Action {
         this.player = player;
     }
 
+    /**
+     * Performs an action.
+     * Other classes will override this method.
+     */
     public void actionPerformed(){}
 
     public static class details extends Action{
+        /**
+         * This class prints the player's details.
+         * @param player The player whose details will be printed.
+         */
         public details(Player player){
             super(player);
             this.name = "Print Player Details";
@@ -35,6 +43,10 @@ public class Action {
     }
 
     public static class inventory extends Action{
+        /**
+         * This class prints the player's inventory.
+         * @param player The player whose inventory will be printed.
+         */
         public inventory(Player player){
             super(player);
             this.name = "Print Player Inventory";
@@ -53,6 +65,10 @@ public class Action {
     }
 
     public static class talk extends Action{
+        /**
+         * This class allows the player to speak to NPCs
+         * @param player The player who will speak to NPCs
+         */
         public talk(Player player){
             super(player);
             this.name = "Talk";
@@ -61,6 +77,10 @@ public class Action {
     }
 
     public static class trade extends Action{
+        /**
+         * This class allows the player to trade (consumables) with NPCs
+         * @param player The player that will trade with NPCs
+         */
         public trade(Player player){
             super(player);
             this.name = "Trade";
@@ -74,6 +94,10 @@ public class Action {
     }
 
     public static class tradeArmour extends Action{
+        /**
+         * This class allows the player to trade (armour) with NPCs
+         * @param player The player that will trade with NPCs
+         */
         public tradeArmour(Player player){
             super(player);
             this.name = "Trade";
@@ -88,6 +112,10 @@ public class Action {
 
 
     public static class tradeWeapon extends Action{
+        /**
+         * This class allows the player to trade (weapons) with NPCs
+         * @param player The player that will trade with NPCs
+         */
         public tradeWeapon(Player player){
             super(player);
             this.name = "Trade";
@@ -101,6 +129,10 @@ public class Action {
     }
 
     public static class enchant extends Action{
+        /**
+         * This allows the player to enchant items
+         * @param player the player that will enchant items
+         */
         public enchant(Player player){
             super(player);
             this.name = "Enchant";
@@ -115,6 +147,12 @@ public class Action {
 
     public static class attack extends Action{
         MapTile room;
+
+        /**
+         * This class allows teh player to attack enemies
+         * @param player The player that will attack
+         * @param room The room that the player is attacking in
+         */
         public attack(Player player, MapTile room){
             super(player);
             this.name = "Attack";
@@ -129,6 +167,10 @@ public class Action {
     }
 
     public static class north extends Action{
+        /**
+         * This class allows the player to move north
+         * @param player The player that will move north
+         */
         public north(Player player){
             super(player);
             this.name = "Go North";
@@ -142,6 +184,10 @@ public class Action {
     }
 
     public static class east extends Action{
+        /**
+         * This class allows the player to move east
+         * @param player The player that will move east
+         */
         public east(Player player){
             super(player);
             this.name = "Go East";
@@ -154,6 +200,10 @@ public class Action {
     }
 
     public static class south extends Action{
+        /**
+         * This class allows the player to move south
+         * @param player The player that will move
+         */
         public south(Player player){
             super(player);
             this.name = "Go South";
@@ -166,6 +216,10 @@ public class Action {
     }
 
     public static class west extends Action{
+        /**
+         * This class allows the player to move west
+         * @param player The player that will move
+         */
         public west(Player player){
             super(player);
             this.name = "Go West";

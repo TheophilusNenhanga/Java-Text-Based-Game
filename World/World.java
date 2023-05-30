@@ -15,6 +15,7 @@ public class World {
     String worldString;
     HashMap<String, MapTile> tileTypes;
     MapLoader mapLoader;
+    public String chosenMap;
 
     public int[] startLocation;
 

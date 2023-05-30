@@ -2,6 +2,10 @@ package Defensive;
 
 import SuperClasses.Items;
 
+/**
+ * The base class for all defensive items.
+ * Defensive items reduce the effects of enemy attacks.
+ */
 public class Defensive implements Items {
     public int value;
     public String name;

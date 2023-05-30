@@ -17,6 +17,9 @@ public class MapLoader implements IO {
     public ArrayList<String> mapNames;
     protected int mapNumber;
 
+    /**
+     * The MapLoader class loads the maps properties file and loads the different maps.
+     */
     public MapLoader(){
         this.inputStream = null;
         this.properties = new Properties();
@@ -33,10 +36,16 @@ public class MapLoader implements IO {
         this.getMaps();
     }
 
+    /**
+     * @return The number of maps
+     */
     public int mapNumber(){
         return this.maps.size();
     }
 
+    /**
+     * Gets the maps from the properties file.
+     */
     private void getMaps(){
         this.properties.forEach((key, value) ->{
             this.maps.add((String) value);
@@ -45,7 +54,15 @@ public class MapLoader implements IO {
         });
     }
 
+    /**
+     * Gets the maps at a given index
+     * @param index The index to be queried
+     * @return the map found at the given index
+     */
     public String getMap(int index){
+        if (index < 0){
+            throw new RuntimeException("Error: There is no map at that index");
+        }
         if (index > this.mapNumber){
             throw new RuntimeException("Error: There is no map at that index");
         }else{

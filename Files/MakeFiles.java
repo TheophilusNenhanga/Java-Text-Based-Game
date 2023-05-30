@@ -9,7 +9,6 @@ import java.util.Properties;
  * This class is used to create files when the game is first run.
  * */
 public class MakeFiles {
-    private static final String[] maps = new String[5];
 
     public static void createLeaderboard() {
         File file = new File("leaderboard.properties");
@@ -25,20 +24,4 @@ public class MakeFiles {
         }
     }
 
-    public static void createMaps() {
-        File file = new File("Files/gameMaps.properties");
-        if (!file.exists()) {
-            try {
-                Properties properties = new Properties();
-                FileOutputStream outputStream = new FileOutputStream("Files/gameMaps.properties");
-                for (int i = 0; i < maps.length; i++) {
-                    properties.setProperty(String.valueOf(i), maps[i]);
-                }
-                properties.store(outputStream, "Game Maps");
-                outputStream.close();
-            } catch (IOException e) {
-                System.out.println("---Error: Failed to make maps file---");
-            }
-        }
-    }
 }

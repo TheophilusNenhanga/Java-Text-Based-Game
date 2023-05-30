@@ -2,7 +2,10 @@ package Consumable;
 
 import SuperClasses.Items;
 
-/**Base class for all items used to restore health*/
+/**
+ * Base class for all consumable items.
+ * Consumable items modify the player's health.
+ * */
 public class Consumable implements Items {
     public int value;
     public String name;

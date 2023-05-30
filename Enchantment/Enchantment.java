@@ -2,6 +2,10 @@ package Enchantment;
 
 import SuperClasses.Items;
 
+/**
+ * This is the base class for enchantments.
+ * Enchantments modify the damage the player does when attacking.
+ */
 public class Enchantment implements Items {
     public String name;
     short level;

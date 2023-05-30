@@ -11,7 +11,7 @@ public class FileRead {
     protected File file;
 
     /**
-     *
+     * This class reads files from the disk
      * @param filePath the file path of the file to be read from (with file extension)
      */
     public FileRead(String filePath){

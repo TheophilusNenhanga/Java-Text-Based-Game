@@ -2,6 +2,11 @@ package Enemy;
 
 import java.util.Random;
 
+/**
+ * This is the base class of all enemies.
+ * Enemies deal damage to the player.
+ * Enemies are found on enemy tile classes.
+ */
 public class Enemy {
     public String name;
     public int hp;
@@ -27,6 +32,10 @@ public class Enemy {
         return this.name;
     }
 
+    /**
+     * Is the enemy alive?
+     * @return True if alive, false otherwise
+     */
     public boolean isAlive(){
         return this.hp > 0;
     }
