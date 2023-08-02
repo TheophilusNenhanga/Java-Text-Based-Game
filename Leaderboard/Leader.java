@@ -2,11 +2,11 @@ package Leaderboard;
 
 import Game.Game;
 
-public class Leader implements Comparable<Leader>{
+public class Leader implements Comparable<Leader> {
     final protected String leaderName;
     final protected int leaderScore;
 
-    public Leader(String name, int score){
+    public Leader(String name, int score) {
         this.leaderName = name;
         this.leaderScore = score;
     }
@@ -21,20 +21,33 @@ public class Leader implements Comparable<Leader>{
 
     @Override
     public String toString() {
+        String leaderName = this.getLeaderName();
+        int leaderScore = this.getLeaderScore();
+        String chosenMap;
         try {
-            return "-----" + this.getLeaderName() + "-----" + "\t\t\t" + "-----" + this.getLeaderScore() + "-----" + "\t\t" + "-----" + Game.world.chosenMap + "-----";
-        } catch (RuntimeException ignored){
-            return "-----" + this.getLeaderName() + "-----" + "\t\t\t" + "-----" + this.getLeaderScore() + "-----";
+            chosenMap = Game.world.chosenMap;
+        } catch (NullPointerException ignored) {
+            chosenMap = null;
+        }
+
+
+        String formatString;
+        if (chosenMap != null) {
+            formatString = "| %-20s | %-10d | %-15s |";
+            return String.format(formatString, leaderName, leaderScore, chosenMap);
+        } else {
+            formatString = "| %-20s | %-10s |";
+            return String.format(formatString, leaderName, leaderScore);
         }
     }
 
     @Override
     public int compareTo(Leader otherLeader) {
-        if (otherLeader.leaderScore > this.getLeaderScore()){
+        if (otherLeader.leaderScore > this.getLeaderScore()) {
             return -1;
-        }else if (otherLeader.leaderScore == this.leaderScore) {
+        } else if (otherLeader.leaderScore == this.leaderScore) {
             return 0;
-        }else{
+        } else {
             return 1;
         }
     }

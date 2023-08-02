@@ -2,6 +2,7 @@ package Enemy;
 
 public class GiantSpider extends Enemy{
     public GiantSpider(int level){
+        this.score = 2;
         this.name = "Giant Spider";
         switch (level){
             case 1 -> {

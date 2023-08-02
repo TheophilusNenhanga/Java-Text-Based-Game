@@ -2,6 +2,7 @@ package Enemy;
 
 public class BatSwarm extends Enemy{
     public BatSwarm(int level){
+        this.score = 1;
         this.name = "Swarm of Bats";
         switch (level){
             case 1 -> {

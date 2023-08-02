@@ -3,6 +3,7 @@ package Enemy;
 public class Undead extends Enemy{
     public Undead(int level){
         this.name = "Undead";
+        this.score = 3;
         switch (level){
             case 1 -> {
                 this.hp = 15;
