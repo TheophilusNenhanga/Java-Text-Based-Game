@@ -1,7 +1,7 @@
 package Enemy;
 
-public class Salamander extends Enemy{
-    public Salamander(){
+public class Salamander extends Enemy {
+    public Salamander() {
         this.name = "Salamander";
         this.hp = 10;
         this.damage = 22;

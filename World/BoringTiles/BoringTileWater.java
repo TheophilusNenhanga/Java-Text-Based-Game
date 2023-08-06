@@ -6,7 +6,7 @@ public class BoringTileWater extends BoringTile {
         super(x, y);
     }
 
-    public void introText(){
+    public void introText() {
         System.out.println("""
                 The waters continue to rise.
                 Do not stop here.

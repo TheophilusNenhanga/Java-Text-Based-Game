@@ -1,7 +1,7 @@
 package Enemy;
 
-public class ThunderBird extends Enemy{
-    public ThunderBird(){
+public class ThunderBird extends Enemy {
+    public ThunderBird() {
         this.name = "Thunder Bird";
         this.hp = 25;
         this.damage = 17;
@@ -13,10 +13,10 @@ public class ThunderBird extends Enemy{
     @Override
     public void aliveText() {
         System.out.printf("""
-            The air seems to be getting thinner.
-            Will you survive its onslaught?
-            A %s appears.
-                """, this.name);
+                The air seems to be getting thinner.
+                Will you survive its onslaught?
+                A %s appears.
+                    """, this.name);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package Enchantment;
 
-public class Suction extends Enchantment{
+public class Suction extends Enchantment {
     public Suction() {
         super();
         this.name = "Suction";

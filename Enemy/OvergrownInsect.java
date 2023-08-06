@@ -1,10 +1,10 @@
 package Enemy;
 
-public class OvergrownInsect extends Enemy{
-    public OvergrownInsect(int level){
+public class OvergrownInsect extends Enemy {
+    public OvergrownInsect(int level) {
         this.score = 2;
         this.name = "Overgrown Insect";
-        switch (level){
+        switch (level) {
             case 1 -> {
                 this.hp = 10;
                 this.damage = 6;

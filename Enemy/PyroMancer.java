@@ -1,7 +1,7 @@
 package Enemy;
 
-public class PyroMancer extends Enemy{
-    public PyroMancer(){
+public class PyroMancer extends Enemy {
+    public PyroMancer() {
         this.name = "Pyro-Mancer";
         this.hp = 75;
         this.damage = 23;

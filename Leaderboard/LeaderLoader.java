@@ -11,22 +11,22 @@ public class LeaderLoader implements IO {
     protected int leaderNumber;
     private final ArrayList<Leader> gameLeaders;
 
-    public LeaderLoader(){
+    public LeaderLoader() {
         this.properties = new Properties();
         this.gameLeaders = new ArrayList<>();
         this.leaderNumber = 0;
 
-        try{
+        try {
             FileInputStream fileInputStream = new FileInputStream(leaderboardFilename);
             this.properties.load(fileInputStream);
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Error: failed to read properties");
         }
         this.getLeaders();
     }
 
-    private void getLeaders(){
-        for (String key: properties.stringPropertyNames()){
+    private void getLeaders() {
+        for (String key : properties.stringPropertyNames()) {
             String value = properties.getProperty(key);
 
             Leader leader = new Leader(key, Integer.parseInt(value));
@@ -36,11 +36,11 @@ public class LeaderLoader implements IO {
         }
     }
 
-    public Leader getLeader(int index){
+    public Leader getLeader(int index) {
         this.sortLeaders();
-        if (index >= this.leaderNumber){
+        if (index >= this.leaderNumber) {
             throw new RuntimeException("Error: There is no leader at that index");
-        }else{
+        } else {
             return this.gameLeaders.get(index);
         }
     }
@@ -49,11 +49,11 @@ public class LeaderLoader implements IO {
         return leaderNumber;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.leaderNumber == 0;
     }
 
-    public void sortLeaders(){
+    public void sortLeaders() {
         // Sorts the leaders in reverse order
         this.gameLeaders.sort(new Comparator<Leader>() {
             @Override
@@ -65,7 +65,7 @@ public class LeaderLoader implements IO {
     }
 
     public void addLeader(String playerName, int playerScore) {
-        if (!LeaderWriter.addLeader(playerName, playerScore)){
+        if (!LeaderWriter.addLeader(playerName, playerScore)) {
             System.out.println("---FAILED TO ADD TO LEADERBOARD---");
             return;
         }

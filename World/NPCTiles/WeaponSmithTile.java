@@ -10,7 +10,8 @@ import World.MapTile;
 
 public class WeaponSmithTile extends MapTile implements TradeTiles {
     public WeaponSmith trader;
-    public WeaponSmithTile(int x, int y){
+
+    public WeaponSmithTile(int x, int y) {
         super(x, y);
         this.trader = new WeaponSmith();
     }
@@ -24,21 +25,22 @@ public class WeaponSmithTile extends MapTile implements TradeTiles {
                         """
         );
     }
+
     public void trade(Player buyer, NonPlayerCharacter seller) {
-        for (int i = 0; i < seller.inventory.size(); i++){
-            System.out.printf("%d. %s - %d Gold\n", i+1, ((Weapon) seller.inventory.get(i)).name, ((Weapon) seller.inventory.get(i)).value);
+        for (int i = 0; i < seller.inventory.size(); i++) {
+            System.out.printf("%d. %s - %d Gold\n", i + 1, ((Weapon) seller.inventory.get(i)).name, ((Weapon) seller.inventory.get(i)).value);
         }
         System.out.printf("---You have %d Gold---\n", buyer.gold);
-        while (true){
+        while (true) {
             String userInput = scanner.nextLine();
-            if (userInput.equalsIgnoreCase("q")){
+            if (userInput.equalsIgnoreCase("q")) {
                 return;
-            }else{
-                try{
+            } else {
+                try {
                     int userChoice = Integer.parseInt(userInput);
                     Weapon toSwap = (Weapon) seller.inventory.get(userChoice - 1);
                     this.swap(seller, buyer, toSwap);
-                }catch (RuntimeException e){
+                } catch (RuntimeException e) {
                     System.out.println("---Error: Failed to trade---");
                 }
             }
@@ -47,7 +49,7 @@ public class WeaponSmithTile extends MapTile implements TradeTiles {
 
     @Override
     public void swap(NonPlayerCharacter seller, Player buyer, Items itemToSwap) {
-        if (((Weapon) itemToSwap).value > buyer.gold){
+        if (((Weapon) itemToSwap).value > buyer.gold) {
             System.out.println("---Too expensive---");
             return;
         }

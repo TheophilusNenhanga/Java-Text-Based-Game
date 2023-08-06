@@ -9,11 +9,11 @@ public class FindTile extends MapTile {
         super(x, y);
     }
 
-    public void modifyPlayer(Player player){
+    public void modifyPlayer(Player player) {
         player.score += 5;
     }
 
-    public void introText(){
+    public void introText() {
         System.out.println("""
                 On this tile you will find something.
                 Something for you to keep.

@@ -6,7 +6,7 @@ public class BoringTileAir extends BoringTile {
         super(x, y);
     }
 
-    public void introText(){
+    public void introText() {
         System.out.println("""
                 This is nothing but a boring windy open space.
                 You must journey on.

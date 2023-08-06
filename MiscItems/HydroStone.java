@@ -1,7 +1,7 @@
 package MiscItems;
 
-public class HydroStone extends ProgressionItem{
-    public HydroStone(){
+public class HydroStone extends ProgressionItem {
+    public HydroStone() {
         this.name = "Hydro Stone";
     }
 }

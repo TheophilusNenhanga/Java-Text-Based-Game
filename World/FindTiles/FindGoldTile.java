@@ -5,6 +5,7 @@ import Player.Player;
 public class FindGoldTile extends FindTile {
     boolean goldClaimed;
     int gold;
+
     public FindGoldTile(int x, int y) {
         super(x, y);
         this.goldClaimed = false;
@@ -13,22 +14,22 @@ public class FindGoldTile extends FindTile {
 
     @Override
     public void introText() {
-        if (!goldClaimed){
+        if (!goldClaimed) {
             System.out.println("""
-                        Someone seems to have dropped some gold.
-                        Is it truly yours to keep?
-                        """);
-        }else{
+                    Someone seems to have dropped some gold.
+                    Is it truly yours to keep?
+                    """);
+        } else {
             System.out.println("""
-                        You've been here before.
-                        There is nothing new to see here.
-                        """);
+                    You've been here before.
+                    There is nothing new to see here.
+                    """);
         }
     }
 
     @Override
     public void modifyPlayer(Player player) {
-        if (!this.goldClaimed){
+        if (!this.goldClaimed) {
             this.goldClaimed = true;
             player.crystals += this.gold;
             System.out.println("+" + this.gold + " gold added.");

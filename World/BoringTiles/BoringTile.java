@@ -12,9 +12,9 @@ public class BoringTile extends MapTile {
     @Override
     public void introText() {
         System.out.println("""
-            This tile is a plain tile with no other functionality.
-            It is also the base class for other tiles.
-            """);
+                This tile is a plain tile with no other functionality.
+                It is also the base class for other tiles.
+                """);
     }
 
     @Override

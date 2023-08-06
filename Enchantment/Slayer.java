@@ -1,6 +1,6 @@
 package Enchantment;
 
-public class Slayer extends Enchantment{
+public class Slayer extends Enchantment {
     public Slayer() {
         super();
         this.name = "Human Slayer";

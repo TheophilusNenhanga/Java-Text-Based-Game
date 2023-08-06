@@ -1,10 +1,10 @@
 package Enemy;
 
-public class SkeletalWarrior extends Enemy{
-    public SkeletalWarrior(int level){
+public class SkeletalWarrior extends Enemy {
+    public SkeletalWarrior(int level) {
         this.name = "Skeletal Warrior";
         this.score = 4;
-        switch (level){
+        switch (level) {
             case 1 -> {
                 this.hp = 12;
                 this.damage = 9;

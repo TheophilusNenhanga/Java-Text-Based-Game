@@ -1,6 +1,6 @@
 package Consumable;
 
-public class RottenFlesh extends Consumable{
+public class RottenFlesh extends Consumable {
     public RottenFlesh() {
         super();
         this.value = 10;

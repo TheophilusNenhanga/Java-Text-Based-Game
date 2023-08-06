@@ -1,6 +1,6 @@
 package Consumable;
 
-public class CrustyBread extends Consumable{
+public class CrustyBread extends Consumable {
     public CrustyBread() {
         super();
         this.value = 20;

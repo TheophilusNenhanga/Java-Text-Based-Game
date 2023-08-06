@@ -1,7 +1,7 @@
 package Enemy;
 
-public class SeaSerpent extends Enemy{
-    public SeaSerpent(){
+public class SeaSerpent extends Enemy {
+    public SeaSerpent() {
         this.name = "SeaSerpent";
         this.hp = 25;
         this.damage = 12;

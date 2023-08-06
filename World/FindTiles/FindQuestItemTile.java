@@ -7,6 +7,7 @@ import World.MapTile;
 public class FindQuestItemTile extends MapTile {
 
     MagicalItem item;
+
     public FindQuestItemTile(int x, int y) {
         super(x, y);
         this.item = new MagicalItem();
@@ -14,7 +15,7 @@ public class FindQuestItemTile extends MapTile {
 
     @Override
     public void modifyPlayer(Player player) {
-        if (!this.completed){
+        if (!this.completed) {
             player.score += 5;
             this.completed = true;
             player.inventory.add(this.item);
@@ -29,8 +30,8 @@ public class FindQuestItemTile extends MapTile {
                     There is nothing to see here.
                     It seems you have already claimed the %s.
                     You must forge onwards.
-                    """, this.item.name );
-        }else{
+                    """, this.item.name);
+        } else {
             System.out.printf("""
                     You see a soft glow.
                     You have found the %s.

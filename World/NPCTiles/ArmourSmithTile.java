@@ -11,7 +11,8 @@ import World.MapTile;
 
 public class ArmourSmithTile extends MapTile implements TradeTiles {
     public ArmourSmith trader;
-    public ArmourSmithTile(int x, int y){
+
+    public ArmourSmithTile(int x, int y) {
         super(x, y);
         this.trader = new ArmourSmith();
     }
@@ -27,23 +28,22 @@ public class ArmourSmithTile extends MapTile implements TradeTiles {
     }
 
 
-
     @Override
     public void trade(Player buyer, NonPlayerCharacter seller) {
-        for (int i = 0; i < seller.inventory.size(); i++){
-            System.out.printf("%d. %s - %d Gold\n", i+1, ((Defensive) seller.inventory.get(i)).name, ((Defensive) seller.inventory.get(i)).value);
+        for (int i = 0; i < seller.inventory.size(); i++) {
+            System.out.printf("%d. %s - %d Gold\n", i + 1, ((Defensive) seller.inventory.get(i)).name, ((Defensive) seller.inventory.get(i)).value);
         }
         System.out.printf("---You have %d Gold---\n", buyer.gold);
-        while (true){
+        while (true) {
             String userInput = scanner.nextLine();
-            if (userInput.equalsIgnoreCase("q")){
+            if (userInput.equalsIgnoreCase("q")) {
                 return;
-            }else{
-                try{
+            } else {
+                try {
                     int userChoice = Integer.parseInt(userInput);
                     Defensive toSwap = (Defensive) seller.inventory.get(userChoice - 1);
                     this.swap(seller, buyer, toSwap);
-                }catch (RuntimeException e){
+                } catch (RuntimeException e) {
                     System.out.println("---Error: Failed to trade---");
                 }
             }
@@ -52,7 +52,7 @@ public class ArmourSmithTile extends MapTile implements TradeTiles {
 
     @Override
     public void swap(NonPlayerCharacter seller, Player buyer, Items itemToSwap) {
-        if (((Defensive) itemToSwap).value > buyer.gold){
+        if (((Defensive) itemToSwap).value > buyer.gold) {
             System.out.println("---Too expensive---");
             return;
         }

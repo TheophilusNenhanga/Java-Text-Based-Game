@@ -1,7 +1,7 @@
 package Defensive;
 
-public class WoodenShield extends Defensive{
-    public WoodenShield(){
+public class WoodenShield extends Defensive {
+    public WoodenShield() {
         super();
         this.name = "Wooden Shield";
         this.description = "YOu might be better off without it";

@@ -5,13 +5,13 @@ import Weapon.Weapon;
 
 import java.util.ArrayList;
 
-public class WeaponSmith extends NonPlayerCharacter{
-    public WeaponSmith(){
+public class WeaponSmith extends NonPlayerCharacter {
+    public WeaponSmith() {
         super();
-        this.name =  "Weapon Smith";
+        this.name = "Weapon Smith";
         this.gold = random.nextInt(200, 250);
-        for (Items item: this.allItems){
-            if (item instanceof Weapon){
+        for (Items item : this.allItems) {
+            if (item instanceof Weapon) {
                 this.inventory.add(item);
             }
         }

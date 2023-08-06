@@ -1,7 +1,7 @@
 package Enemy;
 
-public class HellHound extends Enemy{
-    public HellHound(){
+public class HellHound extends Enemy {
+    public HellHound() {
         this.name = "Hell Hound";
         this.hp = 14;
         this.damage = 15;

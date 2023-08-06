@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class Dagger extends Weapon {
     boolean sellable;
+
     public Dagger() {
         super();
         this.name = "dagger";
@@ -14,7 +15,8 @@ public class Dagger extends Weapon {
         this.attacks = new HashMap<>();
         this.addAttacks();
     }
-    private void addAttacks(){
+
+    private void addAttacks() {
         this.attacks.put(1, new Attack("Stab", 0.1, 15));
         this.attacks.put(2, new Attack("Dagger Throw", 0.3, 15));
         this.attacks.put(3, new Attack("Dagger Slicer", 0.5, 10));

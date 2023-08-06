@@ -2,7 +2,7 @@ package Consumable;
 
 import java.util.Random;
 
-public class LuckyFruit extends Consumable{
+public class LuckyFruit extends Consumable {
     public LuckyFruit() {
         super();
         Random random = new Random();

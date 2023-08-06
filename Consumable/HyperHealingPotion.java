@@ -1,6 +1,6 @@
 package Consumable;
 
-public class HyperHealingPotion extends Consumable{
+public class HyperHealingPotion extends Consumable {
     public HyperHealingPotion() {
         super();
         this.value = 115;

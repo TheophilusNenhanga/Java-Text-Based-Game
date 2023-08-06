@@ -1,7 +1,7 @@
 package Enemy;
 
-public class Hydra extends Enemy{
-    public Hydra(){
+public class Hydra extends Enemy {
+    public Hydra() {
         this.name = "Hydra";
         this.hp = 25;
         this.damage = 10;

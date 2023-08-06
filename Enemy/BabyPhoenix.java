@@ -1,7 +1,7 @@
 package Enemy;
 
-public class BabyPhoenix extends Enemy{
-    public BabyPhoenix(){
+public class BabyPhoenix extends Enemy {
+    public BabyPhoenix() {
         this.name = "BabyPhoenix";
         this.hp = 8;
         this.damage = 14;

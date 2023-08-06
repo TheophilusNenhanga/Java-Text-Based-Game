@@ -1,7 +1,7 @@
 package Enemy;
 
-public class Manticore extends Enemy{
-    public Manticore(){
+public class Manticore extends Enemy {
+    public Manticore() {
         this.name = "Manticore";
         this.hp = 25;
         this.damage = 19;
@@ -25,7 +25,7 @@ public class Manticore extends Enemy{
                 You can barely breathe now.
                 You have conquered the unconquerable
                 Could you save humanity?
-                
+                                
                 You must be getting close
                 """);
     }

@@ -1,7 +1,7 @@
 package Enemy;
 
-public class WaterNymph extends Enemy{
-    public WaterNymph(){
+public class WaterNymph extends Enemy {
+    public WaterNymph() {
         this.name = "Water Nymph";
         this.hp = 20;
         this.damage = 8;

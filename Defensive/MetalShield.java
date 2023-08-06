@@ -1,7 +1,7 @@
 package Defensive;
 
-public class MetalShield extends Defensive{
-    public MetalShield(){
+public class MetalShield extends Defensive {
+    public MetalShield() {
         super();
         this.name = "Metal Shield";
         this.description = "This might come in handy";

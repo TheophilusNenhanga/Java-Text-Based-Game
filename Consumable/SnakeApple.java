@@ -1,6 +1,6 @@
 package Consumable;
 
-public class SnakeApple extends Consumable{
+public class SnakeApple extends Consumable {
 
     public SnakeApple() {
         super();

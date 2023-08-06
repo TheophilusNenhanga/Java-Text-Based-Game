@@ -2,7 +2,7 @@ package World;
 
 import Player.Player;
 
-public class VictoryTile extends MapTile{
+public class VictoryTile extends MapTile {
     int gold;
     int score;
     boolean rewardClaimed;
@@ -14,25 +14,25 @@ public class VictoryTile extends MapTile{
         rewardClaimed = false;
     }
 
-    public void modifyPlayer(Player player){
-        if (!this.rewardClaimed){
+    public void modifyPlayer(Player player) {
+        if (!this.rewardClaimed) {
             this.rewardClaimed = true;
             player.gold += this.gold;
             player.score += this.score;
-            System.out.println("+"+this.gold+ " gold added");
-            System.out.println("+"+this.score+ " score added");
+            System.out.println("+" + this.gold + " gold added");
+            System.out.println("+" + this.score + " score added");
 
             player.victory = true;
         }
     }
 
-    public void introText(){
+    public void introText() {
         if (!this.rewardClaimed) {
             System.out.println("""
                     You see the light.
                     Before you leave the cave take your reward.
                     """);
-        }else{
+        } else {
             System.out.println("""
                     This is where your journey ends.
                     This is where your story begins.

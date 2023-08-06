@@ -7,7 +7,7 @@ import java.util.Properties;
 
 /**
  * This class is used to create files when the game is first run.
- * */
+ */
 public class MakeFiles {
 
     public static void createLeaderboard() {

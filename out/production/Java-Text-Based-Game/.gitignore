@@ -1,4 +1,6 @@
-/.idea/
-/out/
-/out/production/
+.idea/
+out/*
+out/production/*
 *.class
+lib/*
+

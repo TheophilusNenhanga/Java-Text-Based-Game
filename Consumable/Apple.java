@@ -1,6 +1,6 @@
 package Consumable;
 
-public class Apple extends Consumable{
+public class Apple extends Consumable {
     public Apple() {
         super();
         this.value = 25;

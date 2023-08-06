@@ -1,7 +1,7 @@
 package Enemy;
 
-public class GeoMancer extends Enemy{
-    public GeoMancer(){
+public class GeoMancer extends Enemy {
+    public GeoMancer() {
         this.name = "Geo-Mancer";
         this.hp = 50;
         this.damage = 14;

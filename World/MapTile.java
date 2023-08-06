@@ -15,33 +15,33 @@ public abstract class MapTile {
 
     public static Random random = new Random();
 
-    public MapTile(int x, int y){
+    public MapTile(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public void modifyPlayer(Player player){
+    public void modifyPlayer(Player player) {
 
     }
 
-    public void introText(){
+    public void introText() {
 
     }
-    public void converse(){
+
+    public void converse() {
 
     }
 
     // TODO: Test that this method works correctly. Looking for key words
-    public boolean lookingForKeyWords(String userInput, String searchString){
+    public boolean lookingForKeyWords(String userInput, String searchString) {
         String[] split = userInput.split(" ");
-        for (String word : split){
-            if (Objects.equals(word, searchString)){
+        for (String word : split) {
+            if (Objects.equals(word, searchString)) {
                 return true;
             }
         }
         return false;
     }
-
 
 
 }

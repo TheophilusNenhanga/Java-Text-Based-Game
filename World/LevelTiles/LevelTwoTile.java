@@ -3,7 +3,7 @@ package World.LevelTiles;
 import World.MapTile;
 
 public class LevelTwoTile extends MapTile {
-    public LevelTwoTile(int x, int y){
+    public LevelTwoTile(int x, int y) {
         super(x, y);
     }
 

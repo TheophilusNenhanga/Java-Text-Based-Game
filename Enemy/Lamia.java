@@ -1,10 +1,10 @@
 package Enemy;
 
-public class Lamia extends Enemy{
-    public Lamia(int level){
+public class Lamia extends Enemy {
+    public Lamia(int level) {
         this.name = "Lamia";
         this.score = 5;
-        switch (level){
+        switch (level) {
             case 1 -> {
                 this.hp = 30;
                 this.damage = 12;

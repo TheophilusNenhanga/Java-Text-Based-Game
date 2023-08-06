@@ -1,6 +1,6 @@
 package Consumable;
 
-public class FreshBread extends Consumable{
+public class FreshBread extends Consumable {
     public FreshBread() {
         super();
         this.value = 35;

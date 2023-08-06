@@ -1,10 +1,10 @@
 package Enemy;
 
-public class BatSwarm extends Enemy{
-    public BatSwarm(int level){
+public class BatSwarm extends Enemy {
+    public BatSwarm(int level) {
         this.score = 1;
         this.name = "Swarm of Bats";
-        switch (level){
+        switch (level) {
             case 1 -> {
                 this.hp = 15;
                 this.damage = 6;
@@ -33,9 +33,9 @@ public class BatSwarm extends Enemy{
     @Override
     public void aliveText() {
         System.out.printf("""
-               A %s fly above your head.
-               Each looking more blood thirsty than the last.
-               """, this.name);
+                A %s fly above your head.
+                Each looking more blood thirsty than the last.
+                """, this.name);
     }
 
     @Override

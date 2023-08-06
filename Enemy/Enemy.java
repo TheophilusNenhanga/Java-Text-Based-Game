@@ -17,7 +17,7 @@ public class Enemy {
     public String type;
     Random random;
 
-    public Enemy(){
+    public Enemy() {
         this.random = new Random();
         this.name = "Enemy";
         this.hp = 0;
@@ -34,17 +34,18 @@ public class Enemy {
 
     /**
      * Is the enemy alive?
+     *
      * @return True if alive, false otherwise
      */
-    public boolean isAlive(){
+    public boolean isAlive() {
         return this.hp > 0;
     }
 
-    public void aliveText(){
+    public void aliveText() {
         System.out.println("The " + this.name + " is still alive.");
     }
 
-    public void deadText(){
+    public void deadText() {
         System.out.println("The " + this.name + "has been defeated.");
     }
 }

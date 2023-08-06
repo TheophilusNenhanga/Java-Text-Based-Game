@@ -11,9 +11,9 @@ public class AeroBossTile extends EnemyTile {
 
     @Override
     public void introText() {
-        if (this.enemy.isAlive()){
+        if (this.enemy.isAlive()) {
             this.enemy.aliveText();
-        }else{
+        } else {
             this.enemy.deadText();
         }
     }

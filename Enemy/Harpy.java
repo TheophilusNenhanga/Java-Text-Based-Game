@@ -1,7 +1,7 @@
 package Enemy;
 
-public class Harpy extends Enemy{
-    public Harpy(){
+public class Harpy extends Enemy {
+    public Harpy() {
         this.name = "Harpy";
         this.hp = 22;
         this.damage = 12;

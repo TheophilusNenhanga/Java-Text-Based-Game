@@ -1,6 +1,6 @@
 package Consumable;
 
-public class CookedInsectFlesh extends Consumable{
+public class CookedInsectFlesh extends Consumable {
     public CookedInsectFlesh() {
         super();
         this.value = 45;

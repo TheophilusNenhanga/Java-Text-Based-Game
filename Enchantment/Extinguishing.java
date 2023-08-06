@@ -1,6 +1,6 @@
 package Enchantment;
 
-public class Extinguishing extends Enchantment{
+public class Extinguishing extends Enchantment {
     public Extinguishing() {
         super();
         this.name = "Extinguishing";

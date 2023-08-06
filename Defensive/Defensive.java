@@ -13,12 +13,12 @@ public class Defensive implements Items {
     public float defence;
     Boolean sellable;
 
-    public Defensive(){
+    public Defensive() {
         this.value = 1;
-        this.name =  "Defensive";
+        this.name = "Defensive";
         this.description = "It will protect you";
         this.defence = 0.1f;
-        this.sellable =true;
+        this.sellable = true;
     }
 
     @Override

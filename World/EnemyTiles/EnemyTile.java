@@ -7,12 +7,12 @@ import World.MapTile;
 public class EnemyTile extends MapTile {
     public Enemy enemy;
 
-    public EnemyTile(int x, int y, int level){
+    public EnemyTile(int x, int y, int level) {
         super(x, y);
         this.completed = false;
 
         int r = random.nextInt(0, 10);
-        if (r < 1){
+        if (r < 1) {
             this.enemy = new BatSwarm(level);
         } else if (r < 3) {
             this.enemy = new OvergrownInsect(level);
@@ -22,32 +22,32 @@ public class EnemyTile extends MapTile {
             this.enemy = new GiantSpider(level);
         } else if (r < 9) {
             this.enemy = new Undead(level);
-        }else{
+        } else {
             this.enemy = new Lamia(level);
         }
     }
 
-    public void introText(){
-        if (this.enemy.isAlive()){
+    public void introText() {
+        if (this.enemy.isAlive()) {
             this.enemy.aliveText();
-        }else{
+        } else {
             this.enemy.deadText();
         }
     }
 
     public void modifyPlayer(Player player) {
-        if (this.enemy.isAlive()){
-            try{
+        if (this.enemy.isAlive()) {
+            try {
                 float defenceMultiplier = (float) (0.1 * player.mostDefence().defence);
                 float damageDealt = this.enemy.damage - this.enemy.damage * defenceMultiplier;
-                player.hp = (float) (player.hp - damageDealt);
+                player.hp = player.hp - damageDealt;
                 System.out.printf("%s does %f damage. You have %.1f HP remaining.", this.enemy.name, damageDealt, player.hp);
-            }catch (RuntimeException e){
+            } catch (RuntimeException e) {
                 player.hp = player.hp - this.enemy.damage;
                 System.out.printf("%s does %d damage. You have %.1f HP remaining.", this.enemy.name, this.enemy.damage, player.hp);
             }
 
-        }else{
+        } else {
             this.completed = true;
         }
     }
